@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valerie Horton | Caribbean Cruise 2026 | Point Me to Paradise</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #75AFB1;
+    --teal-dark: #4F8A8C;
+    --pale-teal: #C4E4E1;
+    --gold: #DAC396;
+    --cream: #E9DEC0;
+    --cream-light: #F5EFDF;
+    --paper: #FBF9F4;
+    --paper-pure: #FFFFFF;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--teal-dark);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(160deg, var(--teal-dark) 0%, #3a6e70 60%, #2d5658 100%);
+    color: var(--paper-pure);
+    padding: 60px 24px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?w=1600&q=80') center/cover no-repeat;
+    opacity: 0.18;
+  }
+  .hero-inner { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
+  .hero-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--gold);
+    letter-spacing: 0.04em;
+    margin-bottom: 12px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 6vw, 52px);
+    font-weight: 600;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    color: var(--paper-pure);
+  }
+  .hero-dates {
+    font-size: 17px;
+    color: var(--pale-teal);
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+  .hero-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--cream);
+  }
+  .hero-divider {
+    width: 60px;
+    height: 2px;
+    background: var(--gold);
+    margin: 24px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ── AGENT CARD ── */
+  .agent-card {
+    background: var(--pale-teal);
+    border-bottom: 2px solid var(--teal);
+    padding: 24px;
+    text-align: center;
+  }
+  .agent-card .agent-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--teal-dark);
+    margin-bottom: 4px;
+  }
+  .agent-card .agent-biz {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--teal-dark);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    opacity: 0.8;
+  }
+  .agent-contacts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    font-size: 14px;
+    color: var(--teal-dark);
+  }
+  .agent-contacts a { color: var(--teal-dark); text-decoration: none; font-weight: 500; }
+  .agent-contacts a:hover { text-decoration: underline; }
+
+  /* ── LAYOUT ── */
+  .container { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+
+  /* ── SECTION HEADERS ── */
+  .ship-section {
+    padding: 48px 0 32px;
+  }
+  .ship-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 8px;
+  }
+  .ship-badge {
+    background: var(--teal-dark);
+    color: var(--paper-pure);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .ship-badge.carnival { background: var(--gold); color: var(--teal-dark); }
+  .ship-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 600;
+    color: var(--teal-dark);
+    line-height: 1.1;
+  }
+  .ship-meta {
+    font-size: 14px;
+    color: var(--teal);
+    font-weight: 500;
+    margin-bottom: 16px;
+    padding-left: 2px;
+  }
+
+  /* ── ITINERARY STRIP ── */
+  .itinerary-strip {
+    background: var(--cream-light);
+    border: 1px solid var(--cream);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 28px;
+    font-size: 13px;
+    color: var(--teal-dark);
+  }
+  .itinerary-strip strong {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 8px;
+    color: var(--teal-dark);
+  }
+  .itin-ports {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .itin-port {
+    background: var(--pale-teal);
+    color: var(--teal-dark);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .itin-port.sea { background: var(--cream); }
+
+  /* ── OPTION CARDS ── */
+  .options-grid { display: flex; flex-direction: column; gap: 20px; }
+
+  .option-card {
+    background: var(--paper-pure);
+    border: 1.5px solid var(--cream);
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+  .option-card:hover {
+    box-shadow: 0 6px 24px rgba(79,138,140,0.12);
+    border-color: var(--teal);
+  }
+  .option-card.selected {
+    border-color: var(--teal-dark);
+    box-shadow: 0 0 0 2px var(--teal-dark);
+  }
+
+  .card-accent {
+    height: 6px;
+    background: linear-gradient(90deg, var(--teal-dark), var(--teal));
+    border-radius: 0;
+  }
+  .card-accent.carnival { background: linear-gradient(90deg, var(--gold), #c9b07e); }
+
+  .card-body {
+    padding: 20px 22px 16px;
+    flex: 1;
+  }
+  .card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  .card-category {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+  .card-avail {
+    font-size: 12px;
+    color: var(--teal-dark);
+    opacity: 0.7;
+  }
+  .avail-low { color: #c0392b; font-weight: 600; opacity: 1; }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--teal-dark);
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  .card-desc {
+    font-size: 14px;
+    color: var(--teal-dark);
+    opacity: 0.85;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  .card-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+  .card-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--teal-dark);
+  }
+  .card-price-note {
+    font-size: 12px;
+    color: var(--teal-dark);
+    opacity: 0.65;
+  }
+
+  /* Promo tag */
+  .promo-tag {
+    background: var(--gold);
+    color: var(--teal-dark);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 3px 10px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 12px;
+  }
+  .expire-tag {
+    background: #fdecea;
+    color: #c0392b;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 3px 10px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 12px;
+    margin-left: 6px;
+  }
+
+  .card-select {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 22px;
+    background: var(--cream-light);
+    border-top: 1px solid var(--cream);
+    cursor: pointer;
+  }
+  .card-select input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--teal-dark);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .card-select-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--teal-dark);
+    cursor: pointer;
+  }
+
+  /* ── DIVIDER ── */
+  .section-divider {
+    border: none;
+    border-top: 2px solid var(--cream);
+    margin: 48px 0 0;
+  }
+
+  /* ── ADD-ONS ── */
+  .addons-section {
+    padding: 40px 0 0;
+  }
+  .addons-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--teal-dark);
+    margin-bottom: 6px;
+  }
+  .addons-sub {
+    font-size: 14px;
+    color: var(--teal-dark);
+    opacity: 0.7;
+    margin-bottom: 20px;
+  }
+  .addons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px;
+    margin-bottom: 8px;
+  }
+  .addon-card {
+    background: var(--paper-pure);
+    border: 1.5px solid var(--cream);
+    border-radius: 12px;
+    padding: 16px 18px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    transition: border-color 0.2s;
+  }
+  .addon-card:hover { border-color: var(--teal); }
+  .addon-card input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--teal-dark);
+    flex-shrink: 0;
+    margin-top: 2px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  .addon-label { cursor: pointer; }
+  .addon-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--teal-dark);
+    display: block;
+    margin-bottom: 2px;
+  }
+  .addon-price {
+    font-size: 13px;
+    color: var(--teal);
+    font-weight: 500;
+  }
+  .addon-note {
+    font-size: 12px;
+    color: var(--teal-dark);
+    opacity: 0.6;
+    display: block;
+    margin-top: 2px;
+  }
+
+  /* ── RUNNING TOTAL ── */
+  .total-bar {
+    background: var(--teal-dark);
+    color: var(--paper-pure);
+    border-radius: 14px;
+    padding: 22px 28px;
+    margin: 32px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .total-label {
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0.85;
+  }
+  .total-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+  }
+  .total-note {
+    font-size: 12px;
+    opacity: 0.7;
+    margin-top: 2px;
+  }
+
+  /* ── VALUE STATEMENT ── */
+  .value-box {
+    background: var(--cream-light);
+    border: 1px solid var(--cream);
+    border-radius: 12px;
+    padding: 22px 24px;
+    margin: 28px 0 0;
+    font-size: 14px;
+    color: var(--teal-dark);
+    line-height: 1.7;
+  }
+  .value-box strong {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  /* ── CONTACT FORM ── */
+  .form-section {
+    padding: 48px 0 40px;
+  }
+  .form-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--teal-dark);
+    margin-bottom: 6px;
+  }
+  .form-sub {
+    font-size: 14px;
+    color: var(--teal-dark);
+    opacity: 0.7;
+    margin-bottom: 28px;
+  }
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  @media (max-width: 560px) { .form-grid { grid-template-columns: 1fr; } }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group.full { grid-column: 1/-1; }
+  .form-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--teal-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .form-group input,
+  .form-group textarea {
+    border: 1.5px solid var(--cream);
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    color: var(--teal-dark);
+    background: var(--paper-pure);
+    transition: border-color 0.2s;
+    outline: none;
+    width: 100%;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus { border-color: var(--teal-dark); }
+  .form-group textarea { resize: vertical; min-height: 90px; }
+
+  .submit-btn {
+    background: var(--teal-dark);
+    color: var(--paper-pure);
+    border: none;
+    border-radius: 10px;
+    padding: 16px 36px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 8px;
+    letter-spacing: 0.03em;
+    transition: background 0.2s, transform 0.15s;
+    width: 100%;
+  }
+  .submit-btn:hover { background: var(--teal); transform: translateY(-1px); }
+  .form-confirm {
+    display: none;
+    background: var(--pale-teal);
+    border-radius: 10px;
+    padding: 20px 24px;
+    font-size: 15px;
+    color: var(--teal-dark);
+    font-weight: 500;
+    text-align: center;
+    margin-top: 16px;
+  }
+
+  /* ── DEPOSIT NOTE ── */
+  .deposit-note {
+    background: var(--cream-light);
+    border-left: 4px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    font-size: 13px;
+    color: var(--teal-dark);
+    margin: 20px 0 0;
+    line-height: 1.6;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--cream-light);
+    border-top: 2px solid var(--cream);
+    padding: 32px 24px;
+    text-align: center;
+  }
+  .footer-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--teal-dark);
+    margin-bottom: 4px;
+  }
+  .footer-biz {
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--teal-dark);
+    opacity: 0.7;
+    margin-bottom: 10px;
+  }
+  .footer-contacts {
+    font-size: 14px;
+    color: var(--teal);
+  }
+  .footer-contacts a { color: var(--teal); text-decoration: none; }
+  .footer-contacts a:hover { text-decoration: underline; }
+
+  /* ── DISCLAIMER ── */
+  .disclaimer {
+    background: var(--paper);
+    border-top: 1px solid var(--cream);
+    padding: 14px 24px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--teal-dark);
+    opacity: 0.65;
+  }
+
+  /* ── SUITE BADGE ── */
+  .suite-note {
+    display: inline-block;
+    background: var(--pale-teal);
+    border: 1px solid var(--teal);
+    color: var(--teal-dark);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+
+  /* ── OBC badge ── */
+  .obc-badge {
+    display: inline-block;
+    background: var(--pale-teal);
+    color: var(--teal-dark);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+
+  @media (max-width: 600px) {
+    .ship-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .card-meta { flex-direction: column; align-items: flex-start; gap: 4px; }
+    .total-bar { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">A quote prepared for</div>
+    <h1>Valerie Horton</h1>
+    <div class="hero-dates">August 29 – September 6, 2026 &nbsp;·&nbsp; Departing Galveston, TX</div>
+    <div class="hero-sub">Western Caribbean &amp; Eastern Caribbean — two ships, your choice</div>
+    <div class="hero-divider"></div>
+  </div>
+</div>
+
+<!-- ── AGENT CARD ── -->
+<div class="agent-card">
+  <div class="agent-name">Lacey Robertson</div>
+  <div class="agent-biz">Point Me to Paradise Travel</div>
+  <div class="agent-contacts">
+    <span><a id="emailLink" href="#">loading...</a></span>
+    <span>&nbsp;·&nbsp; (832) 274-3152</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     ROYAL CARIBBEAN — SYMPHONY OF THE SEAS
+════════════════════════════════════════════ -->
+<div class="container">
+  <div class="ship-section">
+    <div class="ship-header">
+      <span class="ship-badge">Royal Caribbean</span>
+      <h2 class="ship-name">Symphony of the Seas</h2>
+    </div>
+    <div class="ship-meta">8 Nights Eastern Caribbean &nbsp;·&nbsp; Aug 29 – Sep 6, 2026 &nbsp;·&nbsp; 2 staterooms &nbsp;·&nbsp; Taxes &amp; fees included</div>
+
+    <div class="itinerary-strip">
+      <strong>Itinerary</strong>
+      <div class="itin-ports">
+        <span class="itin-port">Galveston, TX (Depart 3:00 PM)</span>
+        <span class="itin-port sea">2 Days at Sea</span>
+        <span class="itin-port">Perfect Day at CocoCay</span>
+        <span class="itin-port">Nassau, Bahamas</span>
+        <span class="itin-port sea">Day at Sea</span>
+        <span class="itin-port">Cozumel, Mexico</span>
+        <span class="itin-port sea">Day at Sea</span>
+        <span class="itin-port">Galveston, TX (Return)</span>
+      </div>
+    </div>
+
+    <!-- RADIO GROUP: RC -->
+    <div class="options-grid" role="group" aria-label="Royal Caribbean stateroom options">
+
+      <!-- 4U Interior w/ Virtual Balcony -->
+      <div class="option-card" id="rc-card-4u">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-category">Interior &nbsp;·&nbsp; Cat. 4U</span>
+            <span class="card-avail">Avail: 8 cabins</span>
+          </div>
+          <h3 class="card-title">Interior with Virtual Balcony</h3>
+          <p class="card-desc">A true interior stateroom — no porthole — but with Royal Caribbean's floor-to-ceiling LED screen that streams live ocean views in real time. The virtual balcony gives you natural light feel without the balcony price. Two queen-equivalent beds, private bath, ample storage.</p>
+          <div class="card-price-row">
+            <span class="card-price">$5,253.44</span>
+            <span class="card-price-note">2 rooms · taxes &amp; fees included · gratuities not included</span>
+          </div>
+        </div>
+        <label class="card-select" onclick="setTimeout(updateTotal,0)">
+          <input type="radio" name="rc_option" value="RC — Symphony of the Seas | Interior w/ Virtual Balcony (Cat. 4U) | $5,253.44 for 2 rooms" id="rc-4u">
+          <span class="card-select-label">Select this stateroom</span>
+        </label>
+      </div>
+
+      <!-- 2N Ocean View -->
+      <div class="option-card" id="rc-card-2n">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-category">Ocean View &nbsp;·&nbsp; Cat. 2N</span>
+            <span class="card-avail avail-low">⚠ Only 1 left</span>
+          </div>
+          <h3 class="card-title">Ocean View Stateroom</h3>
+          <p class="card-desc">A fixed porthole window brings in natural daylight and a glimpse of the sea. More space than a virtual balcony cabin, with a larger footprint. Two lower beds (convertible to queen), private bath, sitting area. Great middle ground if you want real daylight without paying balcony rates.</p>
+          <div class="card-price-row">
+            <span class="card-price">$6,071.44</span>
+            <span class="card-price-note">2 rooms · taxes &amp; fees included · gratuities not included</span>
+          </div>
+        </div>
+        <label class="card-select" onclick="setTimeout(updateTotal,0)">
+          <input type="radio" name="rc_option" value="RC — Symphony of the Seas | Ocean View (Cat. 2N) | $6,071.44 for 2 rooms" id="rc-2n">
+          <span class="card-select-label">Select this stateroom</span>
+        </label>
+      </div>
+
+      <!-- 2D Balcony -->
+      <div class="option-card" id="rc-card-2d">
+        <div class="card-accent"></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-category">Balcony &nbsp;·&nbsp; Cat. 2D</span>
+            <span class="card-avail">Avail: Check with agent</span>
+          </div>
+          <h3 class="card-title">Balcony Stateroom</h3>
+          <p class="card-desc">Private balcony with two chairs and a small table — morning coffee watching the Caribbean roll by is the move here. Two lower beds (convertible to queen), private bath, full ocean-facing wall. On a ship this size, CocoCay mornings from your own balcony are something different.</p>
+          <div class="card-price-row">
+            <span class="card-price">$7,228.44</span>
+            <span class="card-price-note">2 rooms · taxes &amp; fees included · gratuities not included</span>
+          </div>
+        </div>
+        <label class="card-select" onclick="setTimeout(updateTotal,0)">
+          <input type="radio" name="rc_option" value="RC — Symphony of the Seas | Balcony (Cat. 2D) | $7,228.44 for 2 rooms" id="rc-2d">
+          <span class="card-select-label">Select this stateroom</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- RC Add-Ons -->
+    <div class="addons-section">
+      <div class="addons-title">Optional Add-Ons</div>
+      <div class="addons-sub">Per person · add to your quote and I'll confirm availability before booking.</div>
+      <div class="addons-grid">
+        <div class="addon-card">
+          <input type="checkbox" id="rc-grat" onclick="setTimeout(updateTotal,0)">
+          <label class="addon-label" for="rc-grat">
+            <span class="addon-name">Gratuities</span>
+            <span class="addon-price">$148.00 / person</span>
+            <span class="addon-note">Prepaid — covers all dining &amp; housekeeping staff</span>
+          </label>
+        </div>
+        <div class="addon-card">
+          <input type="checkbox" id="rc-ins" onclick="setTimeout(updateTotal,0)">
+          <label class="addon-label" for="rc-ins">
+            <span class="addon-name">Travel Protection</span>
+            <span class="addon-price">$218.00 / person</span>
+            <span class="addon-note">Trip cancellation, medical &amp; emergency coverage</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- RC Total -->
+    <div class="total-bar" id="rc-total-bar">
+      <div>
+        <div class="total-label">Royal Caribbean Estimated Total</div>
+        <div class="total-note">Select a stateroom to see your estimated price</div>
+      </div>
+      <div class="total-amount" id="rc-total-display">—</div>
+    </div>
+
+    <div class="value-box">
+      <strong>A note on pricing</strong>
+      Individual components in your quote are priced at publicly available rates — and in many cases lower than what you'd find on your own. You don't have to worry about overpaying for a piece of your trip. What you're paying for is the rest: the right rooms, operators we've used for years, and a human who answers when something doesn't go to plan.
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════
+     CARNIVAL JUBILEE
+════════════════════════════════════════════ -->
+<div class="container">
+  <div class="ship-section">
+    <div class="ship-header">
+      <span class="ship-badge carnival">Carnival Cruise Line</span>
+      <h2 class="ship-name">Carnival Jubilee</h2>
+    </div>
+    <div class="ship-meta">7 Nights Western Caribbean &nbsp;·&nbsp; Aug 29 – Sep 5, 2026 &nbsp;·&nbsp; Taxes &amp; fees included &nbsp;·&nbsp; <span style="color:#c0392b;font-weight:600;">⚠ Sale ends May 30, 2026</span></div>
+
+    <div class="itinerary-strip">
+      <strong>Itinerary</strong>
+      <div class="itin-ports">
+        <span class="itin-port">Galveston, TX (Depart 3:30 PM)</span>
+        <span class="itin-port sea">Fun Day at Sea</span>
+        <span class="itin-port">Cozumel, Mexico</span>
+        <span class="itin-port">Costa Maya, Mexico</span>
+        <span class="itin-port">Isla Tropicale, Roatan</span>
+        <span class="itin-port sea">2 Fun Days at Sea</span>
+        <span class="itin-port">Galveston, TX (Return 8:00 AM)</span>
+      </div>
+    </div>
+
+    <!-- Carnival promo note -->
+    <div style="margin-bottom:20px;">
+      <span class="promo-tag">Sun Sea Savings Sale · PB4</span>
+      <span class="expire-tag">⚠ Offer expires May 30, 2026 11:59 AM EST</span>
+      <div style="font-size:13px;color:var(--teal-dark);opacity:0.75;margin-top:10px;line-height:1.7;">
+        Rates are per person based on double occupancy, in USD. Offer applies to cabin assignment categories and is capacity controlled. Not combinable with other discounts or promotional offers. No change fees outside the final payment window. Cruise fare includes Required Cruise Fees &amp; Expenses and Government Taxes &amp; Fees. Category restrictions and exclusions apply. Carnival reserves the right to withdraw or modify this offer without notice. Ships' Registry: The Bahamas and Panama. Contact your agent for deposit and cancellation terms.
+      </div>
+    </div>
+
+    <div class="options-grid" role="group" aria-label="Carnival Jubilee stateroom options">
+
+      <!-- Cloud 9 Spa Interior -->
+      <div class="option-card" id="ccl-card-spa">
+        <div class="card-accent carnival"></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-category">Interior &nbsp;·&nbsp; Cloud 9 Spa</span>
+            <span class="card-avail">Deck 17</span>
+          </div>
+          <h3 class="card-title">Cloud 9 Spa Interior</h3>
+          <p class="card-desc">A step up from a standard interior — Spa cabins include complimentary access to the Cloud 9 Spa's thermal suite (heated loungers, steam rooms, hydrotherapy pool). Priced close to a regular interior but with a wellness perk built in. Two twin beds (convertible to king), private bath.</p>
+          <div class="card-price-row">
+            <span class="card-price">$2,976.00</span>
+            <span class="card-price-note">2 rooms · taxes &amp; fees included · gratuities not included</span>
+          </div>
+        </div>
+        <label class="card-select" onclick="setTimeout(updateTotal,0)">
+          <input type="radio" name="ccl_option" value="Carnival Jubilee | Cloud 9 Spa Interior | $2,976.00 for 2 rooms | Sun Sea Savings Sale PB4" id="ccl-spa">
+          <span class="card-select-label">Select this stateroom</span>
+        </label>
+      </div>
+
+      <!-- 6B Ocean View -->
+      <div class="option-card" id="ccl-card-6b">
+        <div class="card-accent carnival"></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-category">Ocean View &nbsp;·&nbsp; Cat. 6B</span>
+            <span class="card-avail">Promenade Deck</span>
+          </div>
+          <h3 class="card-title">Ocean View Stateroom</h3>
+          <p class="card-desc">A porthole window that faces the Promenade on Carnival Jubilee — you'll see the action of the ship's indoor boulevard below. Natural light without a full ocean panorama. Two twin beds (convertible to king), private bath, slightly larger footprint than the spa interior.</p>
+          <div class="card-price-row">
+            <span class="card-price">$3,456.00</span>
+            <span class="card-price-note">2 rooms · taxes &amp; fees included · gratuities not included</span>
+          </div>
+        </div>
+        <label class="card-select" onclick="setTimeout(updateTotal,0)">
+          <input type="radio" name="ccl_option" value="Carnival Jubilee | Ocean View 6B | $3,456.00 for 2 rooms | Sun Sea Savings Sale PB4" id="ccl-6b">
+          <span class="card-select-label">Select this stateroom</span>
+        </label>
+      </div>
+
+      <!-- HG Havana Extended Cabana Balcony -->
+      <div class="option-card" id="ccl-card-hg">
+        <div class="card-accent carnival"></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-category">Balcony &nbsp;·&nbsp; Cat. HG</span>
+            <span class="card-avail">Verandah Deck</span>
+          </div>
+          <h3 class="card-title">Havana Extended Cabana Balcony</h3>
+          <p class="card-desc">One of Carnival's most distinctive cabin types — a larger-than-standard balcony in the Havana section of the ship, with exclusive access to the Havana bar and pool area during the day (adults and their cabins only). The extended cabana space means two loungers and a dining table. Great for Roatan mornings.</p>
+          <div class="card-price-row">
+            <span class="card-price">$5,216.00</span>
+            <span class="card-price-note">2 rooms · taxes &amp; fees included · gratuities not included</span>
+          </div>
+        </div>
+        <label class="card-select" onclick="setTimeout(updateTotal,0)">
+          <input type="radio" name="ccl_option" value="Carnival Jubilee | Havana Extended Cabana Balcony (HG) | $5,216.00 for 2 rooms | Sun Sea Savings Sale PB4" id="ccl-hg">
+          <span class="card-select-label">Select this stateroom</span>
+        </label>
+      </div>
+
+      <!-- KS Excel Corner Suite -->
+      <div class="option-card" id="ccl-card-ks">
+        <div class="card-accent carnival"></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-category">Suite &nbsp;·&nbsp; Cat. KS</span>
+            <span class="card-avail">Deck 12 &amp; 14</span>
+          </div>
+          <span class="suite-note">✦ All 4 guests in one room</span>
+          <h3 class="card-title">Carnival Excel Corner Suite</h3>
+          <p class="card-desc">A flagship suite that accommodates all four of you in a single room — a wraparound corner balcony with panoramic views, a separate living area, priority boarding, and suite-class amenities. At this price point it works out to well under $1,500 per person and eliminates the two-room coordination entirely.</p>
+          <div class="card-price-row">
+            <span class="card-price">$5,736.00</span>
+            <span class="card-price-note">1 suite · all 4 guests · taxes &amp; fees included · gratuities not included</span>
+          </div>
+        </div>
+        <label class="card-select" onclick="setTimeout(updateTotal,0)">
+          <input type="radio" name="ccl_option" value="Carnival Jubilee | Excel Corner Suite (KS) | $5,736.00 for all 4 guests | Sun Sea Savings Sale PB4" id="ccl-ks">
+          <span class="card-select-label">Select this stateroom</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Carnival Add-Ons -->
+    <div class="addons-section">
+      <div class="addons-title">Optional Add-Ons</div>
+      <div class="addons-sub">Per person · add to your quote and I'll confirm availability before booking.</div>
+      <div class="addons-grid">
+        <div class="addon-card">
+          <input type="checkbox" id="ccl-grat" onclick="setTimeout(updateTotal,0)">
+          <label class="addon-label" for="ccl-grat">
+            <span class="addon-name">Gratuities</span>
+            <span class="addon-price">$119.00 / person</span>
+            <span class="addon-note">Prepaid — covers all dining &amp; housekeeping staff</span>
+          </label>
+        </div>
+        <div class="addon-card">
+          <input type="checkbox" id="ccl-ins" onclick="setTimeout(updateTotal,0)">
+          <label class="addon-label" for="ccl-ins">
+            <span class="addon-name">Vacation Protection</span>
+            <span class="addon-price">$95.00 / person</span>
+            <span class="addon-note">Trip cancellation &amp; travel insurance coverage</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carnival Total -->
+    <div class="total-bar" id="ccl-total-bar">
+      <div>
+        <div class="total-label">Carnival Jubilee Estimated Total</div>
+        <div class="total-note">Select a stateroom to see your estimated price</div>
+      </div>
+      <div class="total-amount" id="ccl-total-display">—</div>
+    </div>
+
+    <div class="deposit-note">
+      <strong>Deposit &amp; Payment:</strong> Contact Lacey for deposit amount and cancellation terms under the Sun Sea Savings Sale (PB4). No change fees apply outside the final payment window. Final pricing confirmed by your agent before any money moves.
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- ── CONTACT FORM ── -->
+<div class="container">
+  <div class="form-section">
+    <div class="form-title">Ready to Move Forward?</div>
+    <div class="form-sub">Tell me what's calling to you and I'll get the booking started — or answer any questions first.</div>
+
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="f-name">Your Name</label>
+        <input type="text" id="f-name" name="name" placeholder="Valerie Horton" required>
+      </div>
+      <div class="form-group">
+        <label for="f-email">Email Address</label>
+        <input type="email" id="f-email" name="email" placeholder="your@email.com" required>
+      </div>
+      <div class="form-group">
+        <label for="f-phone">Phone</label>
+        <input type="tel" id="f-phone" name="phone" placeholder="(xxx) xxx-xxxx">
+      </div>
+      <div class="form-group">
+        <label for="f-guests">Number of Guests</label>
+        <input type="text" id="f-guests" name="guests" placeholder="e.g. 4 adults">
+      </div>
+      <div class="form-group full">
+        <label for="f-message">Questions or Comments</label>
+        <textarea id="f-message" name="message" placeholder="Which option interests you? Any questions about the ships, ports, or pricing?"></textarea>
+      </div>
+    </div>
+
+    <!-- Hidden fields -->
+    <input type="hidden" name="access_key" value="07b49510-e138-404a-a159-f083f3db32b3">
+    <input type="hidden" name="subject" id="form-subject" value="Cruise Quote Inquiry — Valerie Horton">
+    <input type="hidden" name="rc_selection" id="hidden-rc" value="No RC selection made">
+    <input type="hidden" name="ccl_selection" id="hidden-ccl" value="No Carnival selection made">
+    <input type="hidden" name="rc_addons" id="hidden-rc-addons" value="None">
+    <input type="hidden" name="ccl_addons" id="hidden-ccl-addons" value="None">
+    <input type="hidden" name="estimated_rc_total" id="hidden-rc-total" value="">
+    <input type="hidden" name="estimated_ccl_total" id="hidden-ccl-total" value="">
+
+    <button class="submit-btn" onclick="submitForm(event)">Send My Selections to Lacey</button>
+    <div class="form-confirm" id="form-confirm">
+      ✓ Got it! I'll be in touch within 24 hours to confirm availability and next steps.
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-name">Lacey Robertson</div>
+  <div class="footer-biz">Point Me to Paradise Travel</div>
+  <div class="footer-contacts">
+    <a id="footerEmail" href="#">loading...</a>
+    &nbsp;·&nbsp; (832) 274-3152
+  </div>
+</footer>
+
+<!-- ── DISCLAIMER ── -->
+<div class="disclaimer">
+  Prices and availability are subject to change until booked.
+</div>
+
+<script>
+  // ── Email assembly (never hardcoded)
+  (function(){
+    var u = 'Lacey.paradiseplanner';
+    var d = 'gmail.com';
+    var addr = u + '@' + d;
+    var mailto = 'mailto:' + addr;
+    var el1 = document.getElementById('emailLink');
+    var el2 = document.getElementById('footerEmail');
+    if(el1){ el1.href = mailto; el1.textContent = addr; }
+    if(el2){ el2.href = mailto; el2.textContent = addr; }
+  })();
+
+  // ── Pricing data
+  var RC_PRICES = {
+    'rc-4u': 5253.44,
+    'rc-2n': 6071.44,
+    'rc-2d': 7228.44
+  };
+  var CCL_PRICES = {
+    'ccl-spa': 2976.00,
+    'ccl-6b':  3456.00,
+    'ccl-hg':  5216.00,
+    'ccl-ks':  5736.00
+  };
+  // Guests: RC = 4 pax (2 rooms x 2), Carnival = 4 pax
+  var NUM_PAX = 4;
+
+  function fmt(n){
+    return 'Est. $' + n.toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2});
+  }
+
+  function updateTotal(){
+    // RC
+    var rcSel = document.querySelector('input[name="rc_option"]:checked');
+    var rcBase = 0;
+    if(rcSel){
+      var rcId = rcSel.id;
+      rcBase = RC_PRICES[rcId] || 0;
+    }
+    var rcGrat = document.getElementById('rc-grat').checked ? 148 * NUM_PAX : 0;
+    var rcIns  = document.getElementById('rc-ins').checked  ? 218 * NUM_PAX : 0;
+    var rcTotal = rcBase + rcGrat + rcIns;
+    var rcDisp = document.getElementById('rc-total-display');
+    var rcNote = document.querySelector('#rc-total-bar .total-note');
+    if(rcBase > 0){
+      rcDisp.textContent = fmt(rcTotal);
+      rcNote.textContent = 'Includes selected cabin + add-ons. Final price confirmed before booking.';
+    } else {
+      rcDisp.textContent = '—';
+      rcNote.textContent = 'Select a stateroom to see your estimated price';
+    }
+
+    // Carnival
+    var cclSel = document.querySelector('input[name="ccl_option"]:checked');
+    var cclBase = 0;
+    if(cclSel){
+      var cclId = cclSel.id;
+      cclBase = CCL_PRICES[cclId] || 0;
+    }
+    var cclGrat = document.getElementById('ccl-grat').checked ? 119 * NUM_PAX : 0;
+    var cclIns  = document.getElementById('ccl-ins').checked  ? 95  * NUM_PAX : 0;
+    var cclTotal = cclBase + cclGrat + cclIns;
+    var cclDisp = document.getElementById('ccl-total-display');
+    var cclNote = document.querySelector('#ccl-total-bar .total-note');
+    if(cclBase > 0){
+      cclDisp.textContent = fmt(cclTotal);
+      cclNote.textContent = 'Includes selected cabin + add-ons. Final price confirmed before booking.';
+    } else {
+      cclDisp.textContent = '—';
+      cclNote.textContent = 'Select a stateroom to see your estimated price';
+    }
+
+    // Update hidden form fields
+    document.getElementById('hidden-rc').value  = rcSel  ? rcSel.value  : 'No RC selection made';
+    document.getElementById('hidden-ccl').value = cclSel ? cclSel.value : 'No Carnival selection made';
+
+    var rcAddons = [];
+    if(document.getElementById('rc-grat').checked) rcAddons.push('Gratuities ($148/pp)');
+    if(document.getElementById('rc-ins').checked)  rcAddons.push('Travel Protection ($218/pp)');
+    document.getElementById('hidden-rc-addons').value = rcAddons.length ? rcAddons.join(', ') : 'None';
+
+    var cclAddons = [];
+    if(document.getElementById('ccl-grat').checked) cclAddons.push('Gratuities ($119/pp)');
+    if(document.getElementById('ccl-ins').checked)  cclAddons.push('Vacation Protection ($95/pp)');
+    document.getElementById('hidden-ccl-addons').value = cclAddons.length ? cclAddons.join(', ') : 'None';
+
+    document.getElementById('hidden-rc-total').value  = rcBase  > 0 ? fmt(rcTotal)  : 'N/A';
+    document.getElementById('hidden-ccl-total').value = cclBase > 0 ? fmt(cclTotal) : 'N/A';
+
+    // Highlight selected cards
+    document.querySelectorAll('.option-card').forEach(function(c){ c.classList.remove('selected'); });
+    if(rcSel)  document.getElementById('rc-card-'  + rcSel.id.replace('rc-',''))  && document.getElementById('rc-card-'  + rcSel.id.replace('rc-',''))  .classList.add('selected');
+    if(cclSel) document.getElementById('ccl-card-' + cclSel.id.replace('ccl-','')) && document.getElementById('ccl-card-' + cclSel.id.replace('ccl-','')) .classList.add('selected');
+  }
+
+  function submitForm(e){
+    e.preventDefault();
+    updateTotal();
+    var name    = document.getElementById('f-name').value.trim();
+    var email   = document.getElementById('f-email').value.trim();
+    var phone   = document.getElementById('f-phone').value.trim();
+    var guests  = document.getElementById('f-guests').value.trim();
+    var message = document.getElementById('f-message').value.trim();
+
+    if(!name || !email){ alert('Please enter your name and email.'); return; }
+
+    var rcSel  = document.getElementById('hidden-rc').value;
+    var cclSel = document.getElementById('hidden-ccl').value;
+
+    var payload = {
+      access_key: '07b49510-e138-404a-a159-f083f3db32b3',
+      subject: 'Cruise Quote Inquiry — ' + name,
+      name: name,
+      email: email,
+      phone: phone || 'Not provided',
+      guests: guests || 'Not provided',
+      message: message || 'No message',
+      rc_selection: rcSel,
+      rc_addons: document.getElementById('hidden-rc-addons').value,
+      estimated_rc_total: document.getElementById('hidden-rc-total').value,
+      ccl_selection: cclSel,
+      ccl_addons: document.getElementById('hidden-ccl-addons').value,
+      estimated_ccl_total: document.getElementById('hidden-ccl-total').value
+    };
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+      body: JSON.stringify(payload)
+    })
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+      if(data.success){
+        document.getElementById('form-confirm').style.display = 'block';
+        document.querySelector('.submit-btn').style.display = 'none';
+      } else {
+        alert('Something went wrong. Please call or email Lacey directly.');
+      }
+    })
+    .catch(function(){
+      alert('Submission failed. Please call or email Lacey directly.');
+    });
+  }
+</script>
+</body>
+</html>
