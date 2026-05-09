@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nashville Birthday Trip — Nadine Blaire</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #75AFB1;
+    --teal-dark: #4F8A8C;
+    --pale-teal: #C4E4E1;
+    --gold: #DAC396;
+    --cream: #E9DEC0;
+    --cream-light: #F5EFDF;
+    --paper: #FBF9F4;
+    --paper-pure: #FFFFFF;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--teal-dark); font-size: 16px; line-height: 1.65; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(160deg, var(--teal-dark) 0%, var(--teal) 60%, #9ECFD1 100%);
+    color: var(--paper-pure);
+    padding: 60px 24px 52px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('https://images.unsplash.com/photo-1514924013411-cbf25faa35bb?w=1400&q=80') center/cover no-repeat;
+    opacity: 0.18;
+  }
+  .hero-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+  .hero-eyebrow { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.1rem; color: var(--gold); letter-spacing: 0.04em; margin-bottom: 10px; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; line-height: 1.18; margin-bottom: 14px; }
+  .hero-sub { font-size: 1.05rem; font-weight: 300; color: rgba(255,255,255,0.88); margin-bottom: 6px; }
+  .hero-dates { display: inline-block; background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.35); border-radius: 40px; padding: 6px 20px; font-size: 0.9rem; margin-top: 12px; letter-spacing: 0.03em; }
+
+  /* AGENT CARD */
+  .agent-card {
+    background: var(--pale-teal);
+    border-bottom: 2px solid var(--teal);
+    padding: 20px 24px;
+    text-align: center;
+  }
+  .agent-card .agent-name { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 600; color: var(--teal-dark); margin-bottom: 4px; }
+  .agent-card .agent-agency { font-size: 0.82rem; font-weight: 500; color: var(--teal); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+  .agent-card .agent-contacts { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; font-size: 0.9rem; color: var(--teal); }
+  .agent-card a { color: var(--teal); text-decoration: none; }
+  .agent-card a:hover { text-decoration: underline; }
+
+  /* LAYOUT */
+  .page-wrap { max-width: 820px; margin: 0 auto; padding: 0 20px 60px; }
+
+  /* INTRO BLOCK */
+  .intro { background: var(--paper-pure); border-radius: 12px; border: 1px solid var(--pale-teal); padding: 32px 36px; margin: 36px 0 32px; }
+  .intro h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; color: var(--teal-dark); margin-bottom: 12px; }
+  .intro p { font-size: 0.97rem; color: var(--teal-dark); margin-bottom: 10px; }
+  .intro p:last-child { margin-bottom: 0; }
+  .trip-details { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+  .trip-detail-pill { background: var(--cream-light); border: 1px solid var(--cream); border-radius: 30px; padding: 6px 16px; font-size: 0.85rem; font-weight: 500; color: var(--teal-dark); }
+
+  /* SECTION HEADERS */
+  .section-label { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1rem; color: var(--teal); letter-spacing: 0.05em; margin-bottom: 6px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 600; color: var(--teal-dark); margin-bottom: 20px; }
+
+  /* FLIGHT CARD */
+  .flight-card { background: var(--paper-pure); border-radius: 14px; border: 1px solid var(--pale-teal); overflow: hidden; margin-bottom: 22px; box-shadow: 0 2px 12px rgba(79,138,140,0.07); }
+  .flight-card-header { background: var(--pale-teal); padding: 14px 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+  .flight-card-header .flight-tier { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 600; color: var(--teal-dark); }
+  .flight-card-header .flight-total { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--teal-dark); }
+  .flight-legs { padding: 20px 24px; display: flex; flex-direction: column; gap: 18px; }
+  .flight-leg { display: flex; align-items: center; gap: 0; }
+  .flight-endpoint { min-width: 130px; }
+  .flight-endpoint .time { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 600; color: var(--teal-dark); }
+  .flight-endpoint .airport { font-size: 0.78rem; color: var(--teal); font-weight: 500; margin-top: 1px; }
+  .flight-endpoint .city { font-size: 0.78rem; color: var(--teal); }
+  .flight-middle { flex: 1; text-align: center; padding: 0 10px; }
+  .flight-line { display: flex; align-items: center; gap: 0; margin-bottom: 4px; }
+  .flight-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); flex-shrink: 0; }
+  .flight-dash { flex: 1; height: 1px; background: var(--teal); }
+  .flight-plane { font-size: 1rem; padding: 0 4px; color: var(--teal); }
+  .flight-duration { font-size: 0.78rem; color: var(--teal); font-weight: 500; }
+  .flight-meta { padding: 0 24px 18px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .flight-details-row { padding: 0 24px 18px; font-size: 0.83rem; color: var(--teal-dark); }
+  .flight-details-row span { margin-right: 16px; }
+  .flight-divider { border: none; border-top: 1px dashed var(--pale-teal); margin: 0 24px; }
+  .fare-perks { padding: 14px 24px; background: var(--cream-light); display: flex; flex-wrap: wrap; gap: 8px; }
+
+  /* HOTEL CARDS */
+  .hotel-card {
+    background: var(--paper-pure);
+    border-radius: 14px;
+    border: 2px solid transparent;
+    overflow: hidden;
+    margin-bottom: 22px;
+    transition: border-color 0.2s;
+    box-shadow: 0 2px 12px rgba(79,138,140,0.07);
+  }
+  .hotel-card.selected { border-color: var(--teal); }
+  .hotel-img { width: 100%; height: 240px; object-fit: cover; display: block; }
+  .hotel-body { padding: 24px 28px; }
+  .hotel-header { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
+  .hotel-name { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 600; color: var(--teal-dark); }
+  .hotel-badge { background: var(--pale-teal); color: var(--teal-dark); font-size: 0.75rem; font-weight: 600; padding: 4px 12px; border-radius: 20px; white-space: nowrap; }
+  .hotel-price-block { display: flex; align-items: baseline; gap: 8px; margin: 14px 0 10px; }
+  .hotel-price { font-family: 'Playfair Display', serif; font-size: 1.9rem; font-weight: 700; color: var(--teal-dark); }
+  .hotel-price-note { font-size: 0.82rem; color: var(--teal); }
+  .hotel-desc { font-size: 0.92rem; color: var(--teal-dark); margin-bottom: 14px; line-height: 1.6; }
+  .hotel-fees { background: var(--cream-light); border-radius: 8px; padding: 12px 16px; font-size: 0.82rem; color: var(--teal-dark); margin-bottom: 16px; }
+  .hotel-fees strong { color: var(--teal-dark); }
+  .hotel-cancel { font-size: 0.83rem; color: var(--teal); font-weight: 500; margin-bottom: 16px; }
+  .hotel-perks { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+  .perk-tag { background: var(--paper); border: 1px solid var(--pale-teal); border-radius: 20px; padding: 4px 12px; font-size: 0.8rem; color: var(--teal-dark); }
+  .select-row { display: flex; align-items: center; gap: 12px; }
+  .select-row input[type=radio] { width: 20px; height: 20px; accent-color: var(--teal-dark); cursor: pointer; flex-shrink: 0; }
+  .select-row label { font-size: 0.93rem; font-weight: 500; color: var(--teal-dark); cursor: pointer; }
+
+  /* TRANSFERS NOTE */
+  .transfers-block { background: var(--paper-pure); border-left: 4px solid var(--teal); border-radius: 0 12px 12px 0; padding: 20px 24px; margin: 10px 0 32px; }
+  .transfers-block h3 { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 600; color: var(--teal-dark); margin-bottom: 6px; }
+  .transfers-block p { font-size: 0.9rem; color: var(--teal-dark); }
+
+  /* ADD-ONS */
+  .addon-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin-bottom: 32px; }
+  @media(min-width:600px){ .addon-grid { grid-template-columns: 1fr 1fr; } }
+  .addon-card { background: var(--paper-pure); border: 1.5px solid var(--pale-teal); border-radius: 12px; padding: 18px 20px; display: flex; gap: 12px; align-items: flex-start; transition: border-color 0.2s; }
+  .addon-card.checked { border-color: var(--teal); background: #EFF9F8; }
+  .addon-card input[type=checkbox] { width: 20px; height: 20px; accent-color: var(--teal-dark); cursor: pointer; flex-shrink: 0; margin-top: 2px; }
+  .addon-info { flex: 1; }
+  .addon-name { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 600; color: var(--teal-dark); margin-bottom: 4px; }
+  .addon-detail { font-size: 0.83rem; color: var(--teal); margin-bottom: 6px; }
+  .addon-price { font-size: 0.92rem; font-weight: 600; color: var(--teal-dark); }
+
+  /* PRICING NOTE */
+  .pricing-note { background: var(--cream-light); border: 1px solid var(--cream); border-radius: 12px; padding: 22px 26px; margin-bottom: 32px; font-size: 0.9rem; color: var(--teal-dark); line-height: 1.65; }
+  .pricing-note strong { color: var(--teal-dark); }
+
+  /* RUNNING TOTAL */
+  .total-bar { background: var(--teal-dark); color: var(--paper-pure); border-radius: 12px; padding: 20px 28px; margin-bottom: 32px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+  .total-label { font-size: 0.9rem; font-weight: 500; opacity: 0.85; }
+  .total-amount { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; }
+  .total-note { font-size: 0.78rem; opacity: 0.7; margin-top: 2px; }
+
+  /* FORM */
+  .form-section { background: var(--paper-pure); border-radius: 14px; border: 1px solid var(--pale-teal); padding: 32px 36px; margin-bottom: 32px; }
+  .form-section h2 { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 600; color: var(--teal-dark); margin-bottom: 8px; }
+  .form-section p { font-size: 0.9rem; color: var(--teal); margin-bottom: 22px; }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media(max-width:560px){ .form-grid { grid-template-columns: 1fr; } }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group.full { grid-column: 1 / -1; }
+  .form-group label { font-size: 0.83rem; font-weight: 600; color: var(--teal-dark); letter-spacing: 0.03em; text-transform: uppercase; }
+  .form-group input, .form-group textarea {
+    border: 1.5px solid var(--pale-teal);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    color: var(--teal-dark);
+    background: var(--paper);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus, .form-group textarea:focus { border-color: var(--teal-dark); }
+  .form-group textarea { resize: vertical; min-height: 90px; }
+  .submit-btn {
+    display: block;
+    width: 100%;
+    margin-top: 22px;
+    background: var(--teal-dark);
+    color: var(--paper-pure);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    border: none;
+    border-radius: 50px;
+    padding: 16px 32px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .submit-btn:hover { background: var(--teal); }
+  .submit-btn:active { transform: scale(0.99); }
+  .form-success { display: none; text-align: center; padding: 30px; }
+  .form-success h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--teal-dark); margin-bottom: 10px; }
+  .form-success p { color: var(--teal); }
+
+  /* FOOTER */
+  footer {
+    background: var(--cream-light);
+    border-top: 1px solid var(--cream);
+    padding: 30px 24px;
+    text-align: center;
+  }
+  footer .footer-name { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; color: var(--teal-dark); margin-bottom: 4px; }
+  footer .footer-agency { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--teal); margin-bottom: 10px; }
+  footer .footer-contacts { font-size: 0.87rem; color: var(--teal); }
+  footer a { color: var(--teal); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  /* DISCLAIMER */
+  .disclaimer { background: var(--paper); text-align: center; padding: 14px 24px; font-size: 0.78rem; color: var(--teal); border-top: 1px solid var(--cream); }
+
+  @media(max-width:600px){
+    .intro { padding: 24px 20px; }
+    .hotel-body { padding: 18px 20px; }
+    .form-section { padding: 24px 20px; }
+    .hero { padding: 44px 20px 38px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">A Custom Quote for</div>
+    <h1>Nadine Blaire<br>&amp; Crew</h1>
+    <div class="hero-sub">Nashville, Tennessee &nbsp;·&nbsp; Her daughter's 21st birthday</div>
+    <div class="hero-dates">✦ December 20–23, 2026 &nbsp;·&nbsp; 4 Adults ✦</div>
+  </div>
+</div>
+
+<!-- AGENT CARD -->
+<div class="agent-card">
+  <div class="agent-name">Lacey Robertson</div>
+  <div class="agent-agency">Point Me to Paradise Travel</div>
+  <div class="agent-contacts">
+    <span><a href="" id="agentEmailLink" id="agentEmailLink2"></a></span>
+    <span>(832) 274-3152</span>
+  </div>
+</div>
+
+<div class="page-wrap">
+
+  <!-- INTRO -->
+  <div class="intro">
+    <h2>Here's what I've put together for you</h2>
+    <p>Nashville in December — the lights are up on Broadway, the honky-tonks are in full swing, and a 21st birthday is exactly the kind of reason this city was made for. I've put together two hotel options for your group of four, both right in the heart of downtown, each with its own character. Read through both — they tell different stories.</p>
+    <p>Below you'll also find a few optional experiences to consider adding: a museum afternoon, a music night out, or a sightseeing loop. Pick what sounds right for your crew. When you're ready, select your option and hit "Let's Make It Official" at the bottom.</p>
+    <div class="trip-details">
+      <span class="trip-detail-pill">📍 Nashville, TN</span>
+      <span class="trip-detail-pill">📅 Dec 20–23, 2026 (3 nights)</span>
+      <span class="trip-detail-pill">👥 4 Adults · 2 Rooms</span>
+      <span class="trip-detail-pill">🎂 21st Birthday Trip</span>
+    </div>
+  </div>
+
+  <!-- FLIGHTS -->
+  <div class="section-label">Getting there</div>
+  <div class="section-title">Your Flights</div>
+
+  <div class="flight-card">
+    <div class="flight-card-header">
+      <span class="flight-tier">Southwest — Choice Fare &nbsp;·&nbsp; 4 Passengers</span>
+      <span class="flight-total">$2,040 total</span>
+    </div>
+
+    <!-- OUTBOUND -->
+    <div class="flight-legs">
+      <div style="font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--teal);margin-bottom:-6px;">Departing · Sun, Dec 20</div>
+      <div class="flight-leg">
+        <div class="flight-endpoint">
+          <div class="time">7:10 AM</div>
+          <div class="airport">HOU</div>
+          <div class="city">Houston Hobby</div>
+        </div>
+        <div class="flight-middle">
+          <div class="flight-line">
+            <div class="flight-dot"></div>
+            <div class="flight-dash"></div>
+            <div class="flight-plane">✈</div>
+            <div class="flight-dash"></div>
+            <div class="flight-dot"></div>
+          </div>
+          <div class="flight-duration">1 hr 50 min · Nonstop</div>
+        </div>
+        <div class="flight-endpoint" style="text-align:right;">
+          <div class="time">9:00 AM</div>
+          <div class="airport">BNA</div>
+          <div class="city">Nashville</div>
+        </div>
+      </div>
+    </div>
+    <div class="flight-details-row">
+      <span>Southwest WN 2058</span><span>Boeing 737 MAX 8</span><span>Economy</span><span>31 in legroom</span><span>Free Wi-Fi</span><span>USB outlet</span>
+    </div>
+
+    <hr class="flight-divider">
+
+    <!-- RETURN -->
+    <div class="flight-legs">
+      <div style="font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--teal);margin-bottom:-6px;">Returning · Wed, Dec 23</div>
+      <div class="flight-leg">
+        <div class="flight-endpoint">
+          <div class="time">1:50 PM</div>
+          <div class="airport">BNA</div>
+          <div class="city">Nashville</div>
+        </div>
+        <div class="flight-middle">
+          <div class="flight-line">
+            <div class="flight-dot"></div>
+            <div class="flight-dash"></div>
+            <div class="flight-plane">✈</div>
+            <div class="flight-dash"></div>
+            <div class="flight-dot"></div>
+          </div>
+          <div class="flight-duration">2 hr 15 min · Nonstop</div>
+        </div>
+        <div class="flight-endpoint" style="text-align:right;">
+          <div class="time">4:05 PM</div>
+          <div class="airport">HOU</div>
+          <div class="city">Houston Hobby</div>
+        </div>
+      </div>
+    </div>
+    <div class="flight-details-row">
+      <span>Southwest WN 3987</span><span>Boeing 737</span><span>Economy</span><span>31 in legroom</span><span>Free Wi-Fi</span><span>USB outlet</span>
+    </div>
+
+    <hr class="flight-divider">
+
+    <!-- FARE PERKS -->
+    <div class="fare-perks">
+      <span class="perk-tag">✓ Free seat selection</span>
+      <span class="perk-tag">✓ Free change (fare difference may apply)</span>
+      <span class="perk-tag">✓ 1 free carry-on per passenger</span>
+      <span class="perk-tag">Extra legroom available (fee)</span>
+      <span class="perk-tag">Priority boarding available (fee)</span>
+      <span class="perk-tag">1st checked bag $90/passenger</span>
+    </div>
+  </div>
+
+  <!-- HOTEL OPTIONS -->
+  <div class="section-label">Choose your stay</div>
+  <div class="section-title">Your Hotel Options</div>
+
+  <!-- OPTION A: OMNI -->
+  <div class="hotel-card" id="card-omni">
+    <img class="hotel-img" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=900&q=80" alt="Omni Nashville Hotel" loading="lazy">
+    <div class="hotel-body">
+      <div class="hotel-header">
+        <div class="hotel-name">Omni Nashville Hotel</div>
+        <span class="hotel-badge">Connected to CMHOF</span>
+      </div>
+      <div class="hotel-price-block">
+        <div class="hotel-price">$1,778</div>
+        <div class="hotel-price-note">total for 2 rooms / 3 nights<br>taxes included</div>
+      </div>
+      <div style="display:inline-block;background:var(--cream-light);border:1px solid var(--cream);border-radius:20px;padding:5px 14px;font-size:0.83rem;font-weight:600;color:var(--teal-dark);margin-bottom:14px;">🛏 Deluxe Room, 1 King Bed &nbsp;·&nbsp; 2 rooms</div>
+      <p class="hotel-desc">The Omni is Nashville's flagship downtown hotel — modern, polished, and directly connected to the Country Music Hall of Fame &amp; Museum on three levels. Floor-to-ceiling windows, a rooftop pool with downtown skyline views, the full-service Mokara Spa, and Bob's Steak &amp; Chop House on-site. Barlines bar has live music nightly. For a birthday celebration, the location can't be beat: Broadway is steps away.</p>
+      <div class="hotel-fees">
+        <strong>Additional charges at the property:</strong> Mandatory hotel fee $105 × 2 + taxes $18 × 2 = <strong>$246</strong> total | Valet parking $55/night (optional) | Wi-Fi $9.95/day in-room | Breakfast $15–20/person
+      </div>
+      <div class="hotel-cancel">✓ FREE cancellation until December 17, 2026 · 1-night penalty applies from Dec 18</div>
+      <div class="hotel-perks">
+        <span class="perk-tag">Rooftop pool &amp; hot tub</span>
+        <span class="perk-tag">Mokara Spa</span>
+        <span class="perk-tag">Live music at Barlines</span>
+        <span class="perk-tag">Attached to CMHOF</span>
+        <span class="perk-tag">Steps from Broadway</span>
+        <span class="perk-tag">Bob's Steak &amp; Chop House</span>
+      </div>
+      <div class="select-row">
+        <input type="radio" name="hotel" id="hotel-omni" value="Omni Nashville Hotel — $1,778 (2 rooms, 3 nights)" onclick="setTimeout(updateTotal,0)">
+        <label for="hotel-omni">Select the Omni Nashville Hotel</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPTION B: UNION STATION -->
+  <div class="hotel-card" id="card-union">
+    <img class="hotel-img" src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=900&q=80" alt="Union Station Nashville Hotel lobby" loading="lazy">
+    <div class="hotel-body">
+      <div class="hotel-header">
+        <div class="hotel-name">The Union Station Nashville Yards, Autograph Collection</div>
+        <span class="hotel-badge">Historic · Marriott Autograph</span>
+      </div>
+      <div class="hotel-price-block">
+        <div class="hotel-price">$2,007</div>
+        <div class="hotel-price-note">total for 2 rooms / 3 nights<br>taxes included</div>
+      </div>
+      <div style="display:inline-block;background:var(--cream-light);border:1px solid var(--cream);border-radius:20px;padding:5px 14px;font-size:0.83rem;font-weight:600;color:var(--teal-dark);margin-bottom:14px;">🛏 Room, 1 King Bed &nbsp;·&nbsp; 2 rooms</div>
+      <p class="hotel-desc">Union Station is Nashville's most architecturally dramatic hotel — a restored 1900 Romanesque railway station with soaring stained-glass ceilings, 20-foot vaulted room ceilings, and the kind of lobby you walk into and stop mid-sentence. It's a member of Historic Hotels of America and part of Marriott's Autograph Collection. On-site you have Stationairy restaurant, The Bar Car with handcrafted Tennessee cocktails, and a fitness center. The birthday dinner setting here is genuinely theatrical.</p>
+      <div class="hotel-fees">
+        <strong>Additional charges at the property:</strong> Mandatory hotel fee $75 × 2 + taxes $13 × 2 = <strong>$176</strong> total | Valet parking $48/day (optional) | Wi-Fi complimentary for Bonvoy members; $13.95/day otherwise | Breakfast $8–19/person
+      </div>
+      <div class="hotel-cancel">✓ FREE cancellation until December 17, 2026 · 1-night penalty applies from Dec 18</div>
+      <div class="hotel-perks">
+        <span class="perk-tag">Historic 1900 train station</span>
+        <span class="perk-tag">Soaring stained-glass lobby</span>
+        <span class="perk-tag">Stationairy &amp; Bar Car dining</span>
+        <span class="perk-tag">Marriott Bonvoy eligible</span>
+        <span class="perk-tag">125 boutique rooms</span>
+        <span class="perk-tag">Historic Hotels of America</span>
+      </div>
+      <div class="select-row">
+        <input type="radio" name="hotel" id="hotel-union" value="The Union Station Nashville Yards, Autograph Collection — $2,007 (2 rooms, 3 nights)" onclick="setTimeout(updateTotal,0)">
+        <label for="hotel-union">Select the Union Station Hotel</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRANSFERS NOTE -->
+  <div class="transfers-block">
+    <h3>✈️ Airport Transfers</h3>
+    <p>Nashville International Airport (BNA) is about 10 miles from downtown — roughly 20–25 minutes depending on traffic. I can arrange private round-trip airport transfers for your group at a later date once your hotel is confirmed. Just let me know and I'll get options in front of you before your departure date.</p>
+  </div>
+
+  <!-- ADD-ONS -->
+  <div class="section-label">Optional extras</div>
+  <div class="section-title">Experiences to Add</div>
+
+  <div class="addon-grid">
+    <div class="addon-card" id="addon-card-cmhof">
+      <input type="checkbox" id="addon-cmhof" value="Country Music Hall of Fame & Museum Tickets" data-price="136" onclick="setTimeout(updateTotal,0)">
+      <div class="addon-info">
+        <div class="addon-name">Country Music Hall of Fame &amp; Museum</div>
+        <div class="addon-detail">Nashville's definitive music museum — the "Smithsonian of country music"</div>
+        <div class="addon-price">From $34/adult · $136 for 4</div>
+      </div>
+    </div>
+    <div class="addon-card" id="addon-card-music">
+      <input type="checkbox" id="addon-music" value="Nashville Music Night Tour (2 hrs)" data-price="180" onclick="setTimeout(updateTotal,0)">
+      <div class="addon-info">
+        <div class="addon-name">Nashville Music Night Tour</div>
+        <div class="addon-detail">2-hour guided night out through Nashville's live music scene</div>
+        <div class="addon-price">From $45/adult · $180 for 4</div>
+      </div>
+    </div>
+    <div class="addon-card" id="addon-card-sight">
+      <input type="checkbox" id="addon-sight" value="Nashville Sightseeing Tour (2 hrs)" data-price="220" onclick="setTimeout(updateTotal,0)">
+      <div class="addon-info">
+        <div class="addon-name">Nashville Sightseeing Tour</div>
+        <div class="addon-detail">2-hour tour hitting Nashville's iconic landmarks and neighborhoods</div>
+        <div class="addon-price">From $55/adult · $220 for 4</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRICING NOTE -->
+  <div class="pricing-note">
+    <strong>A note on how this is priced:</strong> Individual hotels and experiences in your quote are priced at publicly available rates — and in many cases lower than what you'd find on your own. You don't have to worry about overpaying for a piece of your trip. What you're paying for is the rest: the right rooms at the right property, operators we've used, and a human who answers when something doesn't go to plan.<br><br>
+    Book now, pay later — hotel payment is due by December 15, 2026. <strong>Note:</strong> Flights are not included in the pay-later option and will need to be paid in full once your hotel is reserved.
+  </div>
+
+  <!-- RUNNING TOTAL -->
+  <div class="total-bar">
+    <div>
+      <div class="total-label">Estimated Trip Total</div>
+      <div class="total-note">Final pricing confirmed before booking</div>
+    </div>
+    <div style="text-align:right;">
+      <div class="total-amount" id="totalDisplay">Est. $—</div>
+    </div>
+  </div>
+
+  <!-- CONTACT FORM -->
+  <div class="form-section">
+    <h2>Let's Make It Official</h2>
+    <p>Select your hotel above, add any extras, then fill out the form below. Lacey will follow up within 24 hours to confirm details and get your booking started.</p>
+
+    <form id="quoteForm">
+      <input type="hidden" name="access_key" value="07b49510-e138-404a-a159-f083f3db32b3">
+      <input type="hidden" name="subject" value="Quote Request — Nadine Blaire — Nashville 2026">
+      <input type="hidden" name="redirect" value="">
+      <input type="hidden" name="flights" value="Southwest Choice — HOU↔BNA Dec 20 &amp; 23 — WN 2058 / WN 3987 — $2,040 (4 passengers)">
+      <input type="hidden" name="selected_hotel" id="hidden_hotel" value="">
+      <input type="hidden" name="selected_addons" id="hidden_addons" value="">
+      <input type="hidden" name="estimated_total" id="hidden_total" value="">
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" name="first_name" placeholder="Nadine" required>
+        </div>
+        <div class="form-group">
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="last_name" placeholder="Blaire" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000">
+        </div>
+        <div class="form-group full">
+          <label for="message">Anything to add?</label>
+          <textarea id="message" name="message" placeholder="Room preferences, celebration requests, questions — anything at all…"></textarea>
+        </div>
+      </div>
+      <button type="submit" class="submit-btn" id="submitBtn">Send My Selection to Lacey →</button>
+    </form>
+
+    <div class="form-success" id="formSuccess">
+      <h3>You're all set, Nadine! 🎉</h3>
+      <p>Lacey will be in touch within 24 hours to lock in the details and get your Nashville birthday trip underway.</p>
+    </div>
+  </div>
+
+</div><!-- /page-wrap -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">Lacey Robertson</div>
+  <div class="footer-agency">Point Me to Paradise Travel</div>
+  <div class="footer-contacts">
+    <a href="" id="footerEmailLink"></a> &nbsp;·&nbsp; (832) 274-3152
+  </div>
+</footer>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">Prices and availability are subject to change until booked.</div>
+
+<script>
+  // Email assembly — never hardcoded
+  (function(){
+    var u = 'Lacey.paradiseplanner';
+    var d = 'gmail.com';
+    var addr = u + '@' + d;
+    var href = 'mailto:' + addr;
+    var el1 = document.getElementById('agentEmailLink');
+    var el2 = document.getElementById('footerEmailLink');
+    if(el1){ el1.href = href; el1.textContent = addr; }
+    if(el2){ el2.href = href; el2.textContent = addr; }
+  })();
+
+  // Hotel card highlight on selection
+  document.querySelectorAll('input[name="hotel"]').forEach(function(r){
+    r.addEventListener('change', function(){
+      document.querySelectorAll('.hotel-card').forEach(function(c){ c.classList.remove('selected'); });
+      if(this.id === 'hotel-omni') document.getElementById('card-omni').classList.add('selected');
+      if(this.id === 'hotel-union') document.getElementById('card-union').classList.add('selected');
+    });
+  });
+
+  // Addon card highlight
+  document.querySelectorAll('.addon-card input[type=checkbox]').forEach(function(cb){
+    cb.addEventListener('change', function(){
+      var card = this.closest('.addon-card');
+      if(this.checked) card.classList.add('checked');
+      else card.classList.remove('checked');
+    });
+  });
+
+  // Running total — flights always included at $2,040
+  function updateTotal(){
+    var FLIGHTS = 2040;
+    var hotelEl = document.querySelector('input[name="hotel"]:checked');
+    var hotelPrice = 0;
+    var hotelLabel = '';
+    if(hotelEl){
+      hotelLabel = hotelEl.value;
+      var match = hotelEl.value.match(/\$([0-9,]+)/);
+      if(match) hotelPrice = parseInt(match[1].replace(',',''));
+    }
+
+    var addons = [];
+    var addonTotal = 0;
+    document.querySelectorAll('.addon-card input[type=checkbox]:checked').forEach(function(cb){
+      addons.push(cb.value);
+      addonTotal += parseInt(cb.dataset.price || 0);
+    });
+
+    var total = FLIGHTS + hotelPrice + addonTotal;
+
+    var display = document.getElementById('totalDisplay');
+    display.textContent = 'Est. $' + total.toLocaleString();
+
+    // Populate hidden fields
+    document.getElementById('hidden_hotel').value = hotelLabel || 'Not yet selected';
+    document.getElementById('hidden_addons').value = addons.length > 0 ? addons.join('; ') : 'None';
+    document.getElementById('hidden_total').value = '$' + total.toLocaleString();
+  }
+
+  // Init total on load
+  updateTotal();
+
+  // Form submission
+  document.getElementById('quoteForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    updateTotal();
+    var btn = document.getElementById('submitBtn');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    var data = new FormData(this);
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: data
+    }).then(function(r){ return r.json(); }).then(function(res){
+      if(res.success){
+        document.getElementById('quoteForm').style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+      } else {
+        btn.textContent = 'Send My Selection to Lacey →';
+        btn.disabled = false;
+        alert('Something went wrong — please try again or email Lacey directly.');
+      }
+    }).catch(function(){
+      btn.textContent = 'Send My Selection to Lacey →';
+      btn.disabled = false;
+      alert('Connection error — please try again or email Lacey directly.');
+    });
+  });
+</script>
+</body>
+</html>
