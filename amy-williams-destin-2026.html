@@ -21,189 +21,234 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--teal-dark); font-size: 16px; line-height: 1.6; }
 
+  /* ── HERO ── */
   .hero {
-    background: linear-gradient(160deg, #2a5f6b 0%, #3d7d80 40%, #5a9ea0 100%);
-    padding: 64px 24px 56px; text-align: center; position: relative; overflow: hidden;
+    position: relative; height: 520px; display: flex; align-items: flex-end; justify-content: center;
+    background: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/ba/7a/d0/rooftop-pool.jpg?w=1400&h=700&s=1') center/cover no-repeat;
+    overflow: hidden;
   }
-  .hero::before {
-    content: ''; position: absolute; inset: 0;
-    background: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/ba/7a/d0/rooftop-pool.jpg?w=1200&h=600&s=1') center/cover no-repeat;
-    opacity: 0.18;
-  }
-  .hero-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
-  .hero-eyebrow { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 18px; color: var(--pale-teal); letter-spacing: 0.04em; margin-bottom: 12px; }
-  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(36px, 7vw, 60px); font-weight: 700; color: var(--paper-pure); line-height: 1.1; margin-bottom: 16px; }
-  .hero-dates { font-size: 15px; font-weight: 500; color: var(--pale-teal); letter-spacing: 0.08em; text-transform: uppercase; }
-  .hero-divider { width: 48px; height: 2px; background: var(--gold); margin: 20px auto; border-radius: 2px; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(30,70,75,0.25) 0%, rgba(20,55,60,0.75) 100%); }
+  .hero-inner { position: relative; z-index: 2; text-align: center; padding: 0 24px 60px; max-width: 700px; }
+  .hero-eyebrow { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 20px; color: var(--pale-teal); letter-spacing: 0.05em; margin-bottom: 14px; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(42px, 8vw, 72px); font-weight: 700; color: #fff; line-height: 1.05; margin-bottom: 18px; text-shadow: 0 2px 20px rgba(0,0,0,0.3); }
+  .hero-dates { font-size: 14px; font-weight: 600; color: var(--pale-teal); letter-spacing: 0.12em; text-transform: uppercase; }
+  .hero-divider { width: 56px; height: 2px; background: var(--gold); margin: 18px auto; border-radius: 2px; }
+  .hero-tag { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 24px; font-size: 12px; font-weight: 600; color: #fff; padding: 6px 16px; letter-spacing: 0.06em; margin-top: 10px; }
 
-  .agent-bar { background: var(--paper-pure); border-bottom: 1px solid var(--pale-teal); padding: 20px 24px; text-align: center; }
-  .agent-bar-inner { max-width: 680px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px 24px; }
-  .agent-name { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 600; color: var(--teal-dark); }
-  .agent-title { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 15px; color: var(--teal); }
-  .agent-contact { font-size: 14px; color: var(--teal); display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
-  .agent-contact a { color: var(--teal); text-decoration: none; }
-  .agent-contact a:hover { color: var(--teal-dark); text-decoration: underline; }
+  /* ── AGENT BAR ── */
+  .agent-bar { background: var(--teal-dark); padding: 18px 24px; text-align: center; }
+  .agent-bar-inner { max-width: 680px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px 28px; }
+  .agent-name { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 600; color: var(--paper-pure); }
+  .agent-title { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; color: var(--pale-teal); }
+  .agent-contact { font-size: 13px; color: var(--pale-teal); display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+  .agent-contact a { color: var(--pale-teal); text-decoration: none; }
+  .agent-contact a:hover { color: #fff; }
 
-  .content { max-width: 720px; margin: 0 auto; padding: 0 20px; }
-  .section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); margin-bottom: 10px; }
-  .intro-section { padding: 48px 0 32px; }
-  .intro-section p { font-size: 16px; line-height: 1.75; color: var(--teal-dark); max-width: 620px; }
+  /* ── LAYOUT ── */
+  .content { max-width: 740px; margin: 0 auto; padding: 0 20px; }
+  .section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); margin-bottom: 10px; }
 
-  .section-heading { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 600; color: var(--teal-dark); margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1.5px solid var(--pale-teal); }
+  /* ── INTRO ── */
+  .intro-section { padding: 52px 0 36px; }
+  .intro-section h2 { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 600; color: var(--teal-dark); margin-bottom: 16px; line-height: 1.2; }
+  .intro-section p { font-size: 16px; line-height: 1.8; color: var(--teal-dark); max-width: 640px; }
 
-  /* FLIGHTS */
-  .flights-section { padding: 32px 0; }
-  .flight-card { background: var(--paper-pure); border: 1px solid var(--pale-teal); border-radius: 12px; overflow: hidden; margin-bottom: 16px; }
-  .flight-card-header { background: var(--teal-dark); padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; }
-  .flight-card-header .direction { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--pale-teal); }
-  .flight-legs { padding: 20px; }
-  .leg { display: grid; grid-template-columns: 80px 1fr 80px; align-items: center; gap: 12px; margin-bottom: 16px; }
-  .leg:last-child { margin-bottom: 0; }
-  .leg-time { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 600; color: var(--teal-dark); line-height: 1; }
-  .leg-airport { font-size: 11px; font-weight: 600; color: var(--teal); letter-spacing: 0.06em; margin-top: 3px; }
-  .leg-middle { text-align: center; }
-  .leg-airline { font-size: 12px; font-weight: 600; color: var(--teal-dark); letter-spacing: 0.04em; margin-bottom: 4px; }
-  .leg-line { display: flex; align-items: center; gap: 4px; }
-  .leg-line-bar { flex: 1; height: 1px; background: var(--pale-teal); }
-  .leg-line-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); flex-shrink: 0; }
-  .leg-duration { font-size: 11px; color: var(--teal); margin-top: 4px; }
+  /* ── STAT STRIP ── */
+  .stat-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--pale-teal); border: 1px solid var(--pale-teal); border-radius: 12px; overflow: hidden; margin: 32px 0; }
+  .stat-item { background: var(--paper-pure); text-align: center; padding: 18px 12px; }
+  .stat-number { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: var(--teal-dark); line-height: 1; }
+  .stat-label { font-size: 11px; font-weight: 600; color: var(--teal); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 4px; }
+
+  /* ── SECTION HEADINGS ── */
+  .section-heading-wrap { margin-bottom: 24px; padding-bottom: 14px; border-bottom: 2px solid var(--pale-teal); }
+  .section-heading { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--teal-dark); }
+  .section-sub { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 16px; color: var(--teal); margin-top: 4px; }
+
+  /* ── FLIGHTS ── */
+  .flights-section { padding: 36px 0; }
+  .flight-card { background: var(--paper-pure); border: 1px solid var(--pale-teal); border-radius: 14px; overflow: hidden; margin-bottom: 16px; }
+  .flight-header { background: var(--teal-dark); padding: 14px 22px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+  .flight-header .dir { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--pale-teal); }
+  .flight-header .airline { font-size: 13px; font-weight: 500; color: rgba(196,228,225,0.85); }
+  .flight-legs { padding: 22px; }
+  .leg { display: grid; grid-template-columns: 85px 1fr 85px; align-items: center; gap: 14px; }
+  .leg + .leg { margin-top: 18px; }
+  .leg-time { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 600; color: var(--teal-dark); line-height: 1; }
+  .leg-airport { font-size: 12px; font-weight: 700; color: var(--teal); letter-spacing: 0.05em; margin-top: 3px; }
+  .leg-city { font-size: 11px; color: var(--teal); margin-top: 2px; opacity: 0.8; }
+  .leg-mid { text-align: center; }
+  .leg-flight { font-size: 11px; font-weight: 600; color: var(--teal-dark); letter-spacing: 0.04em; margin-bottom: 5px; }
+  .leg-arrow { display: flex; align-items: center; gap: 4px; }
+  .leg-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); flex-shrink: 0; }
+  .leg-bar { flex: 1; height: 1px; background: var(--pale-teal); }
+  .leg-dur { font-size: 11px; color: var(--teal); margin-top: 4px; }
   .leg-right { text-align: right; }
-  .layover-badge { display: inline-block; background: var(--cream-light); border: 1px solid var(--cream); border-radius: 20px; font-size: 11px; font-weight: 600; color: var(--teal); padding: 3px 10px; margin: 8px 0; }
-  .leg-divider { border: none; border-top: 1px dashed var(--pale-teal); margin: 14px 0; }
-  .flight-perks { padding: 12px 20px 16px; border-top: 1px solid var(--cream-light); display: flex; flex-wrap: wrap; gap: 8px; }
-  .perk-pill { background: var(--cream-light); border-radius: 20px; font-size: 11px; font-weight: 500; color: var(--teal-dark); padding: 4px 10px; }
-  .warning-pill { background: #FFF7E6; border: 1px solid #F0D080; border-radius: 20px; font-size: 11px; font-weight: 500; color: #A07010; padding: 4px 10px; }
-  .flight-total-row { padding: 14px 20px; background: var(--cream-light); border-top: 1px solid var(--cream); display: flex; justify-content: space-between; align-items: center; }
-  .flight-total-label { font-size: 13px; font-weight: 500; color: var(--teal); }
-  .flight-total-price { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--teal-dark); }
+  .layover { text-align: center; margin: 10px 0; }
+  .layover span { display: inline-block; background: var(--cream-light); border: 1px solid var(--cream); border-radius: 20px; font-size: 11px; font-weight: 600; color: var(--teal); padding: 3px 12px; }
+  .leg-hr { border: none; border-top: 1px dashed var(--pale-teal); margin: 14px 0; }
+  .flight-perks { padding: 12px 22px 16px; border-top: 1px solid var(--cream-light); display: flex; flex-wrap: wrap; gap: 8px; }
+  .perk { background: var(--cream-light); border-radius: 20px; font-size: 11px; font-weight: 500; color: var(--teal-dark); padding: 4px 12px; }
+  .warn { background: #FFF8E7; border: 1px solid #EDD97A; border-radius: 20px; font-size: 11px; font-weight: 600; color: #8A6800; padding: 4px 12px; }
+  .flight-total { padding: 14px 22px; background: var(--cream-light); border-top: 1px solid var(--cream); display: flex; justify-content: space-between; align-items: center; }
+  .flight-total-lbl { font-size: 13px; font-weight: 500; color: var(--teal); }
+  .flight-total-price { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--teal-dark); }
 
-  /* HOTEL */
-  .hotel-section { padding: 32px 0; }
-  .hotel-card { background: var(--paper-pure); border: 1px solid var(--pale-teal); border-radius: 16px; overflow: hidden; }
-
-  /* PHOTO GRID - main 2+2 */
-  .hotel-gallery-main {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 240px 200px;
-    gap: 3px;
+  /* ── HOTEL BANNER ── */
+  .hotel-section { padding: 36px 0; }
+  .hotel-banner {
+    position: relative; height: 320px; border-radius: 16px 16px 0 0; overflow: hidden;
+    background: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/e4/0d/22/hotel-effie-sandestin.jpg?w=1200&h=500&s=1') center/cover no-repeat;
   }
-  .hotel-gallery-main .span2 { grid-column: 1 / 3; }
-  .hotel-gallery-main img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hotel-banner-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(20,55,60,0.1) 0%, rgba(20,55,60,0.6) 100%); }
+  .hotel-banner-text { position: absolute; bottom: 28px; left: 28px; right: 28px; z-index: 2; }
+  .hotel-banner-name { font-family: 'Playfair Display', serif; font-size: clamp(26px, 5vw, 40px); font-weight: 700; color: #fff; line-height: 1.1; text-shadow: 0 2px 12px rgba(0,0,0,0.3); }
+  .hotel-banner-sub { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 17px; color: var(--pale-teal); margin-top: 6px; }
+  .hotel-banner-badge { display: inline-block; background: var(--gold); border-radius: 20px; font-size: 11px; font-weight: 700; color: var(--teal-dark); padding: 5px 14px; margin-top: 10px; letter-spacing: 0.04em; }
 
-  /* SECONDARY PHOTO STRIP */
-  .hotel-gallery-strip {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 3px;
-    margin-top: 3px;
+  /* ── PHOTO MOSAIC ── */
+  .photo-mosaic { display: grid; gap: 3px; background: var(--paper); }
+  .mosaic-row1 { display: grid; grid-template-columns: 2fr 1fr 1fr; height: 220px; gap: 3px; }
+  .mosaic-row2 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; height: 160px; gap: 3px; }
+  .mosaic-row3 { display: grid; grid-template-columns: 1fr 1fr; height: 180px; gap: 3px; }
+  .photo-mosaic img { width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity 0.3s; }
+  .photo-mosaic img:hover { opacity: 0.92; }
+  .photo-label { position: relative; overflow: hidden; }
+  .photo-label::after { content: attr(data-label); position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(20,55,60,0.65)); color: rgba(196,228,225,0.9); font-size: 10px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; padding: 18px 10px 8px; }
+
+  /* ── HOTEL BODY ── */
+  .hotel-body { background: var(--paper-pure); border: 1px solid var(--pale-teal); border-top: none; border-radius: 0 0 16px 16px; padding: 32px 28px; }
+
+  .hotel-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+  .meta-pill { background: var(--pale-teal); border-radius: 20px; font-size: 12px; font-weight: 600; color: var(--teal-dark); padding: 5px 14px; }
+
+  .hotel-desc { font-size: 15px; line-height: 1.85; color: var(--teal-dark); margin-bottom: 28px; }
+  .hotel-desc strong { font-weight: 600; }
+
+  /* PULL QUOTE */
+  .pull-quote { border-left: 3px solid var(--gold); padding: 16px 20px; background: var(--cream-light); border-radius: 0 10px 10px 0; margin: 24px 0; }
+  .pull-quote p { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 18px; line-height: 1.6; color: var(--teal-dark); }
+  .pull-quote cite { display: block; font-family: 'DM Sans', sans-serif; font-style: normal; font-size: 11px; font-weight: 600; color: var(--teal); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 8px; }
+
+  /* ── AMENITIES ── */
+  .amenities-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 32px; }
+  .amenity { display: flex; align-items: flex-start; gap: 10px; }
+  .amenity-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); flex-shrink: 0; margin-top: 6px; }
+  .amenity-text { font-size: 13px; font-weight: 500; color: var(--teal-dark); line-height: 1.4; }
+  .amenity-text span { display: block; font-size: 11px; font-weight: 400; color: var(--teal); margin-top: 1px; }
+
+  /* ── IMMERSIVE DIVIDER ── */
+  .immersive-divider {
+    position: relative; height: 200px; margin: 40px -20px; overflow: hidden;
+    background: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/ba/7a/d0/rooftop-pool.jpg?w=1400&h=400&s=1') center 40%/cover no-repeat;
   }
-  .hotel-gallery-strip img { width: 100%; height: 130px; object-fit: cover; display: block; }
+  .immersive-divider .overlay { position: absolute; inset: 0; background: rgba(20,55,60,0.55); display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center; padding: 24px; }
+  .immersive-divider h3 { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 600; color: #fff; margin-bottom: 8px; }
+  .immersive-divider p { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 17px; color: var(--pale-teal); max-width: 500px; }
 
-  .hotel-body { padding: 28px 24px; }
-  .hotel-name { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--teal-dark); margin-bottom: 4px; }
-  .hotel-sub { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 16px; color: var(--teal); margin-bottom: 16px; }
-  .hotel-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
-  .meta-pill { background: var(--pale-teal); border-radius: 20px; font-size: 12px; font-weight: 600; color: var(--teal-dark); padding: 4px 12px; }
-  .hotel-desc { font-size: 15px; line-height: 1.75; color: var(--teal-dark); margin-bottom: 24px; }
+  /* ── ACTIVITIES ── */
+  .activities-section { margin-bottom: 36px; }
+  .activities-subhead { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 600; color: var(--teal-dark); margin: 28px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--pale-teal); }
+  .act-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 8px; }
+  .act-card { background: var(--paper); border: 1px solid var(--pale-teal); border-radius: 12px; padding: 18px; }
+  .act-card-icon { font-size: 22px; margin-bottom: 8px; }
+  .act-card-title { font-size: 14px; font-weight: 700; color: var(--teal-dark); margin-bottom: 6px; }
+  .act-card-desc { font-size: 13px; line-height: 1.6; color: var(--teal); }
 
-  /* AMENITIES */
-  .amenities-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 28px; }
-  .amenity-item { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; color: var(--teal-dark); }
-  .amenity-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); flex-shrink: 0; }
+  /* ── NEARBY ── */
+  .nearby-list { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 8px; }
+  .nearby-item { display: flex; gap: 14px; align-items: flex-start; background: var(--paper-pure); border: 1px solid var(--pale-teal); border-radius: 12px; padding: 16px; }
+  .nearby-icon { width: 36px; height: 36px; border-radius: 50%; background: var(--pale-teal); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .nearby-content-title { font-size: 14px; font-weight: 700; color: var(--teal-dark); margin-bottom: 4px; }
+  .nearby-content-desc { font-size: 13px; line-height: 1.6; color: var(--teal-dark); }
+  .nearby-distance { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); background: var(--pale-teal); border-radius: 10px; padding: 2px 8px; margin-bottom: 4px; }
 
-  /* ACTIVITIES SECTION */
-  .activities-section { margin-bottom: 28px; }
-  .activities-heading { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 600; color: var(--teal-dark); margin-bottom: 16px; }
-  .activities-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .activity-card {
-    background: var(--paper);
-    border: 1px solid var(--pale-teal);
-    border-radius: 10px;
-    padding: 14px 16px;
-  }
-  .activity-card-title { font-size: 13px; font-weight: 700; color: var(--teal-dark); margin-bottom: 4px; }
-  .activity-card-desc { font-size: 12px; line-height: 1.55; color: var(--teal); }
+  /* ── BEACH PHOTO ROW ── */
+  .beach-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3px; border-radius: 12px; overflow: hidden; margin: 28px 0; height: 160px; }
+  .beach-row img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-  /* NEARBY */
-  .nearby-section { margin-bottom: 28px; }
-  .nearby-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-  .nearby-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 14px; line-height: 1.5; color: var(--teal-dark); }
-  .nearby-icon { width: 28px; height: 28px; border-radius: 50%; background: var(--pale-teal); display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; margin-top: 1px; }
-
-  /* PRICING */
-  .hotel-pricing { background: var(--cream-light); border: 1px solid var(--cream); border-radius: 10px; padding: 18px 20px; margin-bottom: 12px; }
-  .price-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+  /* ── PRICING ── */
+  .hotel-pricing { background: var(--cream-light); border: 1px solid var(--cream); border-radius: 12px; padding: 22px; margin-bottom: 12px; }
+  .price-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
   .price-row:last-child { margin-bottom: 0; }
-  .price-label { font-size: 13px; color: var(--teal); font-weight: 500; }
-  .price-value { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 600; color: var(--teal-dark); }
-  .price-divider { border: none; border-top: 1px solid var(--cream); margin: 10px 0; }
-  .price-value.highlight { font-size: 24px; font-weight: 700; }
-  .hotel-note { font-size: 12px; color: var(--teal); font-style: italic; line-height: 1.5; }
+  .price-label { font-size: 14px; color: var(--teal); font-weight: 500; }
+  .price-value { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 600; color: var(--teal-dark); }
+  .price-hr { border: none; border-top: 1px solid var(--cream); margin: 12px 0; }
+  .price-highlight { font-size: 28px !important; font-weight: 700 !important; }
+  .hotel-note { font-size: 12px; color: var(--teal); font-style: italic; line-height: 1.6; }
 
-  /* TOTAL BAR */
-  .total-bar { background: var(--teal-dark); border-radius: 12px; padding: 24px 28px; margin: 32px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
-  .total-bar-label { font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--pale-teal); margin-bottom: 4px; }
-  .total-bar-note { font-size: 12px; color: rgba(196,228,225,0.7); }
-  .total-bar-amount { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; color: var(--paper-pure); white-space: nowrap; }
-  .total-bar-subamount { font-size: 12px; color: var(--pale-teal); text-align: right; margin-top: 4px; }
+  /* ── TOTAL ── */
+  .total-bar { background: var(--teal-dark); border-radius: 14px; padding: 28px 32px; margin: 36px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+  .total-left-label { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--pale-teal); margin-bottom: 6px; }
+  .total-breakdown { font-size: 13px; color: rgba(196,228,225,0.7); line-height: 1.6; }
+  .total-amount { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 700; color: #fff; white-space: nowrap; }
+  .total-sub { font-size: 12px; color: var(--pale-teal); text-align: right; margin-top: 4px; }
 
-  /* VALUE & DEPOSIT */
-  .value-section { background: var(--paper-pure); border: 1px solid var(--pale-teal); border-radius: 12px; padding: 24px; margin: 32px 0; }
-  .value-section p { font-size: 15px; line-height: 1.8; color: var(--teal-dark); }
-  .deposit-section { background: var(--cream-light); border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 24px 0; }
-  .deposit-section p { font-size: 14px; color: var(--teal-dark); line-height: 1.6; }
-  .deposit-section strong { color: var(--teal-dark); font-weight: 600; }
+  /* ── VALUE + DEPOSIT ── */
+  .value-box { background: var(--paper-pure); border: 1px solid var(--pale-teal); border-radius: 12px; padding: 26px; margin: 32px 0; }
+  .value-box p { font-size: 15px; line-height: 1.85; color: var(--teal-dark); }
+  .deposit-box { background: var(--cream-light); border-left: 4px solid var(--gold); border-radius: 0 10px 10px 0; padding: 18px 22px; margin: 24px 0; }
+  .deposit-box p { font-size: 14px; color: var(--teal-dark); line-height: 1.7; }
+  .deposit-box strong { font-weight: 700; }
 
-  /* FORM */
-  .form-section { padding: 32px 0 48px; }
-  .form-card { background: var(--paper-pure); border: 1px solid var(--pale-teal); border-radius: 16px; padding: 32px 28px; }
-  .form-intro { font-size: 15px; line-height: 1.7; color: var(--teal-dark); margin-bottom: 24px; }
-  .form-row { margin-bottom: 16px; }
-  .form-row label { display: block; font-size: 13px; font-weight: 600; color: var(--teal-dark); margin-bottom: 6px; }
-  .form-row input, .form-row textarea { width: 100%; padding: 12px 14px; border: 1px solid var(--pale-teal); border-radius: 8px; background: var(--paper); font-family: 'DM Sans', sans-serif; font-size: 16px; color: var(--teal-dark); outline: none; transition: border-color 0.2s; }
+  /* ── FORM ── */
+  .form-section { padding: 36px 0 52px; }
+  .form-card { background: var(--paper-pure); border: 1px solid var(--pale-teal); border-radius: 16px; padding: 36px 30px; }
+  .form-intro { font-size: 15px; line-height: 1.8; color: var(--teal-dark); margin-bottom: 28px; }
+  .form-row { margin-bottom: 18px; }
+  .form-row label { display: block; font-size: 13px; font-weight: 600; color: var(--teal-dark); margin-bottom: 7px; }
+  .form-row input, .form-row textarea { width: 100%; padding: 13px 16px; border: 1px solid var(--pale-teal); border-radius: 8px; background: var(--paper); font-family: 'DM Sans', sans-serif; font-size: 16px; color: var(--teal-dark); outline: none; transition: border-color 0.2s; }
   .form-row input:focus, .form-row textarea:focus { border-color: var(--teal); background: var(--paper-pure); }
-  .form-row textarea { resize: vertical; min-height: 100px; }
-  .form-submit { width: 100%; padding: 16px; background: var(--teal-dark); color: var(--paper-pure); border: none; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 600; cursor: pointer; letter-spacing: 0.04em; margin-top: 8px; transition: background 0.2s; }
+  .form-row textarea { resize: vertical; min-height: 110px; }
+  .form-submit { width: 100%; padding: 18px; background: var(--teal-dark); color: #fff; border: none; border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 700; cursor: pointer; letter-spacing: 0.05em; margin-top: 8px; transition: background 0.2s; }
   .form-submit:hover { background: var(--teal); }
-  .form-success { display: none; text-align: center; padding: 32px; background: var(--pale-teal); border-radius: 12px; margin-top: 20px; }
-  .form-success h3 { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--teal-dark); margin-bottom: 8px; }
+  .form-success { display: none; text-align: center; padding: 36px; background: var(--pale-teal); border-radius: 12px; margin-top: 20px; }
+  .form-success h3 { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--teal-dark); margin-bottom: 10px; }
   .form-success p { font-size: 15px; color: var(--teal-dark); }
 
-  /* FOOTER */
-  .footer { background: var(--cream-light); border-top: 1px solid var(--cream); padding: 36px 24px 24px; text-align: center; }
-  .footer-logo { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 600; color: var(--teal-dark); margin-bottom: 4px; }
-  .footer-tagline { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 14px; color: var(--teal); margin-bottom: 16px; }
-  .footer-contact { font-size: 13px; color: var(--teal); display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; margin-bottom: 12px; }
+  /* ── FOOTER ── */
+  .footer { background: var(--cream-light); border-top: 1px solid var(--cream); padding: 40px 24px 28px; text-align: center; }
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--teal-dark); margin-bottom: 4px; }
+  .footer-tagline { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 15px; color: var(--teal); margin-bottom: 18px; }
+  .footer-contact { font-size: 14px; color: var(--teal); display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 24px; }
   .footer-contact a { color: var(--teal); text-decoration: none; }
   .footer-contact a:hover { color: var(--teal-dark); }
   .disclaimer { background: var(--paper); border-top: 1px solid var(--cream); padding: 14px 24px; text-align: center; font-size: 11px; color: var(--teal); font-style: italic; }
 
-  @media (max-width: 540px) {
-    .hotel-gallery-main { grid-template-columns: 1fr; grid-template-rows: 220px 160px 160px; }
-    .hotel-gallery-main .span2 { grid-column: 1 / 2; }
-    .hotel-gallery-strip { grid-template-columns: 1fr 1fr; }
-    .hotel-gallery-strip img { height: 110px; }
-    .leg { grid-template-columns: 65px 1fr 65px; }
-    .leg-time { font-size: 18px; }
+  @media (max-width: 560px) {
+    .hero { height: 400px; }
+    .stat-strip { grid-template-columns: 1fr 1fr; }
+    .mosaic-row1 { grid-template-columns: 1fr 1fr; height: 180px; }
+    .mosaic-row1 img:first-child { grid-column: 1 / 3; height: 160px; }
+    .mosaic-row2 { grid-template-columns: 1fr 1fr; height: auto; }
+    .mosaic-row2 img { height: 120px; }
+    .mosaic-row3 { height: 140px; }
+    .leg { grid-template-columns: 70px 1fr 70px; gap: 8px; }
+    .leg-time { font-size: 19px; }
+    .act-grid { grid-template-columns: 1fr; }
+    .beach-row { grid-template-columns: 1fr 1fr; }
+    .beach-row img:last-child { display: none; }
     .total-bar { flex-direction: column; text-align: center; }
-    .total-bar-subamount { text-align: center; }
+    .total-sub { text-align: center; }
     .amenities-grid { grid-template-columns: 1fr; }
-    .activities-grid { grid-template-columns: 1fr; }
+    .immersive-divider { margin: 40px -20px; }
   }
 </style>
 </head>
 <body>
 
+<!-- HERO -->
 <header class="hero">
+  <div class="hero-overlay"></div>
   <div class="hero-inner">
-    <div class="hero-eyebrow">A trip designed for you</div>
+    <div class="hero-eyebrow">Curated for you by Lacey Robertson</div>
     <h1>Destin, Florida</h1>
     <div class="hero-divider"></div>
     <div class="hero-dates">August 20 – 23, 2026 &nbsp;·&nbsp; 3 Nights</div>
+    <div class="hero-tag">Hotel Effie Sandestin &nbsp;·&nbsp; American Airlines</div>
   </div>
 </header>
 
+<!-- AGENT BAR -->
 <div class="agent-bar">
   <div class="agent-bar-inner">
     <div>
@@ -219,314 +264,436 @@
 
 <div class="content">
 
+  <!-- INTRO -->
   <section class="intro-section">
-    <div class="section-label">Your Quote</div>
-    <p>Hey Amy! Here's everything for your Destin getaway — flights, your hotel at Sandestin, and all the details you need to make a decision. Reach out with any questions and I'll take care of the rest.</p>
+    <div class="section-label">Your Custom Quote</div>
+    <h2>Three days of white sand, emerald water, and a rooftop you won't want to leave.</h2>
+    <p>Hey Amy! I put this together just for you — flights out of Houston, three nights at one of the best hotels on the Emerald Coast, and a full picture of everything there is to do once you land. Read through, ask me anything, and when you're ready, just fill out the form at the bottom and I'll get everything locked in.</p>
   </section>
+
+  <!-- STAT STRIP -->
+  <div class="stat-strip">
+    <div class="stat-item">
+      <div class="stat-number">3</div>
+      <div class="stat-label">Nights</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">#1</div>
+      <div class="stat-label">Hotel in Area</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">4.6</div>
+      <div class="stat-label">TripAdvisor</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">Aug 17</div>
+      <div class="stat-label">Cancel By</div>
+    </div>
+  </div>
 
   <!-- FLIGHTS -->
   <section class="flights-section">
-    <h2 class="section-heading">Flights</h2>
+    <div class="section-heading-wrap">
+      <div class="section-heading">Your Flights</div>
+      <div class="section-sub">American Airlines · Round-trip from Houston Intercontinental</div>
+    </div>
 
+    <!-- OUTBOUND -->
     <div class="flight-card">
-      <div class="flight-card-header">
-        <div class="direction">✈ Outbound · Thu, Aug 20</div>
-        <div style="font-size:13px;font-weight:500;color:var(--pale-teal);">American Airlines · Economy</div>
+      <div class="flight-header">
+        <div class="dir">✈ Outbound · Thursday, August 20</div>
+        <div class="airline">American Airlines · Main Cabin</div>
       </div>
       <div class="flight-legs">
         <div class="leg">
           <div>
-            <div class="leg-time">7:00</div>
+            <div class="leg-time">7:00<span style="font-size:14px;font-weight:400;"> AM</span></div>
             <div class="leg-airport">IAH</div>
-            <div style="font-size:11px;color:var(--teal);margin-top:2px;">Houston</div>
+            <div class="leg-city">Houston</div>
           </div>
-          <div class="leg-middle">
-            <div class="leg-airline">AA 3026 · Boeing 737</div>
-            <div class="leg-line"><div class="leg-line-dot"></div><div class="leg-line-bar"></div><div class="leg-line-dot"></div></div>
-            <div class="leg-duration">1 hr 27 min</div>
+          <div class="leg-mid">
+            <div class="leg-flight">AA 3026 · Boeing 737</div>
+            <div class="leg-arrow"><div class="leg-dot"></div><div class="leg-bar"></div><div class="leg-dot"></div></div>
+            <div class="leg-dur">1 hr 27 min</div>
           </div>
           <div class="leg-right">
-            <div class="leg-time">8:27</div>
+            <div class="leg-time">8:27<span style="font-size:14px;font-weight:400;"> AM</span></div>
             <div class="leg-airport" style="text-align:right;">DFW</div>
-            <div style="font-size:11px;color:var(--teal);margin-top:2px;text-align:right;">Dallas</div>
+            <div class="leg-city" style="text-align:right;">Dallas</div>
           </div>
         </div>
-        <div style="text-align:center;margin:-4px 0 4px;"><span class="layover-badge">1 hr 3 min layover · Dallas (DFW)</span></div>
-        <hr class="leg-divider">
+        <div class="layover"><span>1 hr 3 min layover in Dallas (DFW)</span></div>
+        <hr class="leg-hr">
         <div class="leg">
           <div>
-            <div class="leg-time">9:30</div>
+            <div class="leg-time">9:30<span style="font-size:14px;font-weight:400;"> AM</span></div>
             <div class="leg-airport">DFW</div>
-            <div style="font-size:11px;color:var(--teal);margin-top:2px;">Dallas</div>
+            <div class="leg-city">Dallas</div>
           </div>
-          <div class="leg-middle">
-            <div class="leg-airline">AA 2460 · Boeing 737</div>
-            <div class="leg-line"><div class="leg-line-dot"></div><div class="leg-line-bar"></div><div class="leg-line-dot"></div></div>
-            <div class="leg-duration">1 hr 58 min</div>
+          <div class="leg-mid">
+            <div class="leg-flight">AA 2460 · Boeing 737</div>
+            <div class="leg-arrow"><div class="leg-dot"></div><div class="leg-bar"></div><div class="leg-dot"></div></div>
+            <div class="leg-dur">1 hr 58 min</div>
           </div>
           <div class="leg-right">
-            <div class="leg-time">11:28</div>
+            <div class="leg-time">11:28<span style="font-size:14px;font-weight:400;"> AM</span></div>
             <div class="leg-airport" style="text-align:right;">VPS</div>
-            <div style="font-size:11px;color:var(--teal);margin-top:2px;text-align:right;">Destin</div>
+            <div class="leg-city" style="text-align:right;">Destin</div>
           </div>
         </div>
       </div>
       <div class="flight-perks">
-        <span class="perk-pill">Free Wi-Fi</span>
-        <span class="perk-pill">In-seat power & USB</span>
-        <span class="perk-pill">Stream media to device</span>
-        <span class="perk-pill">Free seat selection</span>
-        <span class="perk-pill">Free changes</span>
-        <span class="perk-pill">1 free carry-on</span>
+        <span class="perk">Free Wi-Fi</span>
+        <span class="perk">In-seat power & USB</span>
+        <span class="perk">Stream to device</span>
+        <span class="perk">Free seat selection</span>
+        <span class="perk">Free changes</span>
+        <span class="perk">1 free carry-on</span>
       </div>
     </div>
 
+    <!-- RETURN -->
     <div class="flight-card">
-      <div class="flight-card-header">
-        <div class="direction">✈ Return · Sun, Aug 23</div>
-        <div style="font-size:13px;font-weight:500;color:var(--pale-teal);">American Airlines · Economy</div>
+      <div class="flight-header">
+        <div class="dir">✈ Return · Sunday, August 23</div>
+        <div class="airline">American Airlines · Main Cabin</div>
       </div>
       <div class="flight-legs">
         <div class="leg">
           <div>
-            <div class="leg-time">3:54</div>
+            <div class="leg-time">3:54<span style="font-size:14px;font-weight:400;"> PM</span></div>
             <div class="leg-airport">VPS</div>
-            <div style="font-size:11px;color:var(--teal);margin-top:2px;">Destin</div>
+            <div class="leg-city">Destin</div>
           </div>
-          <div class="leg-middle">
-            <div class="leg-airline">AA 2501 · Boeing 737</div>
-            <div class="leg-line"><div class="leg-line-dot"></div><div class="leg-line-bar"></div><div class="leg-line-dot"></div></div>
-            <div class="leg-duration">2 hr 18 min</div>
+          <div class="leg-mid">
+            <div class="leg-flight">AA 2501 · Boeing 737</div>
+            <div class="leg-arrow"><div class="leg-dot"></div><div class="leg-bar"></div><div class="leg-dot"></div></div>
+            <div class="leg-dur">2 hr 18 min</div>
           </div>
           <div class="leg-right">
-            <div class="leg-time">6:12</div>
+            <div class="leg-time">6:12<span style="font-size:14px;font-weight:400;"> PM</span></div>
             <div class="leg-airport" style="text-align:right;">DFW</div>
-            <div style="font-size:11px;color:var(--teal);margin-top:2px;text-align:right;">Dallas</div>
+            <div class="leg-city" style="text-align:right;">Dallas</div>
           </div>
         </div>
-        <div style="text-align:center;margin:-4px 0 4px;"><span class="layover-badge">1 hr 17 min layover · Dallas (DFW)</span></div>
-        <div style="text-align:center;margin-bottom:8px;"><span class="warning-pill">⚠ This flight is often delayed 30+ min</span></div>
-        <hr class="leg-divider">
+        <div class="layover">
+          <span>1 hr 17 min layover in Dallas (DFW)</span>
+          &nbsp;
+          <span class="warn">⚠ Often delayed 30+ min</span>
+        </div>
+        <hr class="leg-hr">
         <div class="leg">
           <div>
-            <div class="leg-time">7:29</div>
+            <div class="leg-time">7:29<span style="font-size:14px;font-weight:400;"> PM</span></div>
             <div class="leg-airport">DFW</div>
-            <div style="font-size:11px;color:var(--teal);margin-top:2px;">Dallas</div>
+            <div class="leg-city">Dallas</div>
           </div>
-          <div class="leg-middle">
-            <div class="leg-airline">AA 1392 · Boeing 737</div>
-            <div class="leg-line"><div class="leg-line-dot"></div><div class="leg-line-bar"></div><div class="leg-line-dot"></div></div>
-            <div class="leg-duration">1 hr 11 min</div>
+          <div class="leg-mid">
+            <div class="leg-flight">AA 1392 · Boeing 737</div>
+            <div class="leg-arrow"><div class="leg-dot"></div><div class="leg-bar"></div><div class="leg-dot"></div></div>
+            <div class="leg-dur">1 hr 11 min</div>
           </div>
           <div class="leg-right">
-            <div class="leg-time">8:40</div>
+            <div class="leg-time">8:40<span style="font-size:14px;font-weight:400;"> PM</span></div>
             <div class="leg-airport" style="text-align:right;">IAH</div>
-            <div style="font-size:11px;color:var(--teal);margin-top:2px;text-align:right;">Houston</div>
+            <div class="leg-city" style="text-align:right;">Houston</div>
           </div>
         </div>
       </div>
       <div class="flight-perks">
-        <span class="perk-pill">Free Wi-Fi</span>
-        <span class="perk-pill">In-seat power & USB</span>
-        <span class="perk-pill">Stream media to device</span>
-        <span class="perk-pill">1 free carry-on</span>
+        <span class="perk">Free Wi-Fi</span>
+        <span class="perk">In-seat power & USB</span>
+        <span class="perk">Stream to device</span>
+        <span class="perk">1 free carry-on</span>
       </div>
-      <div class="flight-total-row">
-        <div class="flight-total-label">Round-trip flights (Main Cabin)</div>
+      <div class="flight-total">
+        <div class="flight-total-lbl">Round-trip · Main Cabin (incl. taxes & fees)</div>
         <div class="flight-total-price">$517.90</div>
       </div>
     </div>
-    <p style="font-size:12px;color:var(--teal);font-style:italic;margin-top:10px;">First checked bag: $100 each way if needed. Prices subject to availability until booked.</p>
+    <p style="font-size:12px;color:var(--teal);font-style:italic;margin-top:10px;">Checked bags $100 each way if needed. Prices subject to availability until booked.</p>
   </section>
 
   <!-- HOTEL -->
   <section class="hotel-section">
-    <h2 class="section-heading">Your Hotel</h2>
+    <div class="section-heading-wrap">
+      <div class="section-heading">Your Hotel</div>
+      <div class="section-sub">Three nights in one of the Emerald Coast's finest rooms</div>
+    </div>
 
-    <div class="hotel-card">
+    <!-- HOTEL BANNER -->
+    <div class="hotel-banner">
+      <div class="hotel-banner-overlay"></div>
+      <div class="hotel-banner-text">
+        <div class="hotel-banner-name">Hotel Effie Sandestin</div>
+        <div class="hotel-banner-sub">Autograph Collection · Miramar Beach, Destin, Florida</div>
+        <div class="hotel-banner-badge">⭐ #1 of 18 Hotels in Miramar Beach · Travelers' Choice 2025</div>
+      </div>
+    </div>
 
-      <!-- MAIN GALLERY -->
-      <div class="hotel-gallery-main">
-        <img class="span2" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/e4/0d/22/hotel-effie-sandestin.jpg?w=1200&h=500&s=1" alt="Hotel Effie Sandestin exterior">
-        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/ba/7a/d0/rooftop-pool.jpg?w=600&h=400&s=1" alt="Rooftop pool">
-        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/e4/0b/da/hotel-effie-sandestin.jpg?w=600&h=400&s=1" alt="Guest room">
+    <!-- PHOTO MOSAIC ROW 1 -->
+    <div class="photo-mosaic">
+      <div class="mosaic-row1">
+        <div class="photo-label" data-label="Rooftop Pool">
+          <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/ba/7a/d0/rooftop-pool.jpg?w=800&h=440&s=1" alt="Hotel Effie rooftop pool">
+        </div>
+        <div class="photo-label" data-label="Guest Suite">
+          <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/e4/0b/da/hotel-effie-sandestin.jpg?w=400&h=440&s=1" alt="Hotel Effie guest suite">
+        </div>
+        <div class="photo-label" data-label="Lobby">
+          <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/e4/0b/f5/lobby.jpg?w=400&h=440&s=1" alt="Hotel Effie lobby">
+        </div>
       </div>
 
-      <!-- SECONDARY STRIP -->
-      <div class="hotel-gallery-strip">
-        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/e4/0b/f5/lobby.jpg?w=400&h=260&s=1" alt="Hotel lobby">
-        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/23/42/83/a5/hotel-effie-sandestin.jpg?w=400&h=260&s=1" alt="Hotel Effie Sandestin">
-        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/22/a2/3c/57/hotel-effie-sandestin-1.jpg?w=400&h=260&s=1" alt="Hotel Effie view" onerror="this.src='https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/e4/0b/f5/lobby.jpg?w=400&h=260&s=1'">
-        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/e4/0c/12/hotel-effie-sandestin.jpg?w=400&h=260&s=1" alt="Hotel Effie amenities" onerror="this.src='https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/ba/7a/d0/rooftop-pool.jpg?w=400&h=260&s=1'">
+      <!-- PHOTO MOSAIC ROW 2 -->
+      <div class="mosaic-row2">
+        <div class="photo-label" data-label="Spa">
+          <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/16/d3/cd/spa-lilliana.jpg?w=400&h=320&s=1" alt="Spa Lilliana" onerror="this.src='https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/e4/0d/22/hotel-effie-sandestin.jpg?w=400&h=320&s=1'">
+        </div>
+        <div class="photo-label" data-label="Pool Cabanas">
+          <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/23/42/83/a5/hotel-effie-sandestin.jpg?w=400&h=320&s=1" alt="Hotel Effie pool cabanas">
+        </div>
+        <div class="photo-label" data-label="Resort Exterior">
+          <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/e4/0d/22/hotel-effie-sandestin.jpg?w=400&h=320&s=1" alt="Hotel Effie exterior">
+        </div>
+        <div class="photo-label" data-label="Beach Access">
+          <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2c/a2/e5/90/hotel-effie-sandestin.jpg?w=400&h=320&s=1" alt="Beach" onerror="this.src='https://dynamic-media-cdn.tripadvisor.com/media/photo-o/23/42/83/a5/hotel-effie-sandestin.jpg?w=400&h=320&s=1'">
+        </div>
       </div>
 
-      <div class="hotel-body">
-        <div class="hotel-name">Hotel Effie Sandestin</div>
-        <div class="hotel-sub">Autograph Collection · Miramar Beach, Destin &nbsp;·&nbsp; #1 of 18 hotels in the area</div>
-
-        <div class="hotel-meta">
-          <span class="meta-pill">Junior Suite · King</span>
-          <span class="meta-pill">Resort View</span>
-          <span class="meta-pill">Aug 20–23 · 3 Nights</span>
-          <span class="meta-pill">Cancel by Aug 17</span>
+      <!-- PHOTO MOSAIC ROW 3 -->
+      <div class="mosaic-row3">
+        <div class="photo-label" data-label="ARA Restaurant">
+          <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/b9/6c/e1/hotel-effie-sandestin.jpg?w=700&h=360&s=1" alt="ARA Restaurant" onerror="this.src='https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/e4/0b/f5/lobby.jpg?w=700&h=360&s=1'">
         </div>
-
-        <p class="hotel-desc">Hotel Effie is the only full-service luxury hotel inside Sandestin Golf and Beach Resort — and it shows. The rooftop pool is the only one of its kind in Northwest Florida, the spa is properly resort-caliber, and the rooms are finished at a level you don't usually find along this stretch of the Panhandle. Your Junior Suite comes with a king bed, resort views from a private balcony, walk-in shower, and enough space to actually settle in for the weekend. The beach is a short tram ride away — those navy chairs with the Hotel Effie logo you see on the white sand? Those are for guests. So are the chairs, umbrellas, and towels.</p>
-
-        <!-- HOTEL AMENITIES -->
-        <div class="section-label" style="margin-bottom:12px;">What's included</div>
-        <div class="amenities-grid" style="margin-bottom:28px;">
-          <div class="amenity-item"><div class="amenity-dot"></div>Northwest FL's only rooftop pool</div>
-          <div class="amenity-item"><div class="amenity-dot"></div>Full-service spa (Spa Lilliana)</div>
-          <div class="amenity-item"><div class="amenity-dot"></div>Complimentary beach tram</div>
-          <div class="amenity-item"><div class="amenity-dot"></div>Private beach chairs & umbrellas</div>
-          <div class="amenity-item"><div class="amenity-dot"></div>On-site restaurant & lobby bar</div>
-          <div class="amenity-item"><div class="amenity-dot"></div>Coffee bar & in-room dining</div>
-          <div class="amenity-item"><div class="amenity-dot"></div>Fitness center</div>
-          <div class="amenity-item"><div class="amenity-dot"></div>Free Wi-Fi throughout</div>
-          <div class="amenity-item"><div class="amenity-dot"></div>Nightly turn-down service</div>
-          <div class="amenity-item"><div class="amenity-dot"></div>Pet-friendly property</div>
+        <div class="photo-label" data-label="Sandestin Resort">
+          <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/e4/0c/12/hotel-effie-sandestin.jpg?w=700&h=360&s=1" alt="Sandestin Resort" onerror="this.src='https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/ba/7a/d0/rooftop-pool.jpg?w=700&h=360&s=1'">
         </div>
+      </div>
+    </div>
 
-        <!-- ACTIVITIES ON-SITE -->
-        <div class="activities-section">
-          <div class="activities-heading">At the Resort</div>
-          <div class="activities-grid">
-            <div class="activity-card">
-              <div class="activity-card-title">Rooftop Pool & Bar</div>
-              <div class="activity-card-desc">Heated rooftop pool with cabanas, cocktails, and Gulf views — the social center of the hotel. Evenings here have live music most weekends.</div>
-            </div>
-            <div class="activity-card">
-              <div class="activity-card-title">Spa Lilliana</div>
-              <div class="activity-card-desc">Full-service spa with massages, facials, and body treatments. Book ahead — it fills up quickly in August, especially weekends.</div>
-            </div>
-            <div class="activity-card">
-              <div class="activity-card-title">Beach Access</div>
-              <div class="activity-card-desc">Complimentary tram drops you at the beach with chairs and umbrellas waiting. The Emerald Coast sand here is the powdery white sugar kind.</div>
-            </div>
-            <div class="activity-card">
-              <div class="activity-card-title">Village of Baytowne Wharf</div>
-              <div class="activity-card-desc">Steps from the hotel — a waterfront village with restaurants, shops, live entertainment, zip-lining, and a climbing wall. Good for a casual evening out.</div>
-            </div>
-            <div class="activity-card">
-              <div class="activity-card-title">Golf (4 Courses)</div>
-              <div class="activity-card-desc">Sandestin has four championship courses — Raven, Burnt Pine, Baytowne, and The Links. All available to Hotel Effie guests.</div>
-            </div>
-            <div class="activity-card">
-              <div class="activity-card-title">Marina Rentals</div>
-              <div class="activity-card-desc">Kayaks, paddleboards, bicycles, and pontoon boats available at the Sandestin marina. Easy to spend a few hours out on the bay.</div>
-            </div>
+    <!-- HOTEL BODY -->
+    <div class="hotel-body">
+      <div class="hotel-meta">
+        <span class="meta-pill">Junior Suite · King Bed</span>
+        <span class="meta-pill">Resort View</span>
+        <span class="meta-pill">Check-in Aug 20</span>
+        <span class="meta-pill">Check-out Aug 23</span>
+        <span class="meta-pill">3 Nights</span>
+        <span class="meta-pill">Cancel by Aug 17</span>
+      </div>
+
+      <p class="hotel-desc">
+        Hotel Effie is the only full-service luxury hotel inside the gates of Sandestin Golf and Beach Resort — and nothing else along this stretch of the Florida Panhandle comes close. The building itself is striking: a grand white structure with a rooftop pool that's the only one of its kind in all of Northwest Florida. Inside, 250 rooms and suites are finished with the kind of detail that makes you notice it — real wood, proper lighting, walk-in showers that actually deliver pressure.<br><br>
+        Your <strong>Junior Suite with Resort View</strong> comes with a king bed, a private balcony overlooking the resort, and a bathroom big enough to be a destination on its own. The beach is a short tram ride away, and when you get there, you're met with Hotel Effie's signature navy lounge chairs and attendants — no hunting for a spot, no hauling gear. Breakfast at ARA, the hotel's ground-floor restaurant, is the kind of meal that anchors a morning. And when evening comes, the rooftop is where you'll want to be.
+      </p>
+
+      <div class="pull-quote">
+        <p>"Best hotel and service I've been to in a long while. Loved the check-in cocktails! Spa was fantastic. Rooftop bar and pool is the best. Food was fabulous — in-room dining and the restaurant on the ground floor."</p>
+        <cite>— Verified TripAdvisor Guest · 2024</cite>
+      </div>
+
+      <!-- AMENITIES -->
+      <div class="section-label" style="margin-bottom:14px;">What's included with your stay</div>
+      <div class="amenities-grid">
+        <div class="amenity"><div class="amenity-dot"></div><div class="amenity-text">Northwest FL's only rooftop pool<span>Heated, with cabana rentals & full bar</span></div></div>
+        <div class="amenity"><div class="amenity-dot"></div><div class="amenity-text">Spa Lilliana (full-service)<span>Massages, facials, body treatments · book early</span></div></div>
+        <div class="amenity"><div class="amenity-dot"></div><div class="amenity-text">Complimentary beach tram service<span>Drops you at the sand with chairs waiting</span></div></div>
+        <div class="amenity"><div class="amenity-dot"></div><div class="amenity-text">Private beach chairs & umbrellas<span>Hotel Effie's reserved section on the Gulf</span></div></div>
+        <div class="amenity"><div class="amenity-dot"></div><div class="amenity-text">ARA Restaurant & lobby bar<span>Gulf-inspired menu, raw bar, craft cocktails</span></div></div>
+        <div class="amenity"><div class="amenity-dot"></div><div class="amenity-text">Coffee bar & in-room dining<span>24-hour room service available</span></div></div>
+        <div class="amenity"><div class="amenity-dot"></div><div class="amenity-text">Fitness center (24-hour access)<span>Full equipment, Gulf-view cardio area</span></div></div>
+        <div class="amenity"><div class="amenity-dot"></div><div class="amenity-text">Sandestin resort access<span>Golf, tennis, marina, nature trails & more</span></div></div>
+        <div class="amenity"><div class="amenity-dot"></div><div class="amenity-text">Complimentary high-speed Wi-Fi<span>Throughout property including lobby & pool</span></div></div>
+        <div class="amenity"><div class="amenity-dot"></div><div class="amenity-text">Pet-friendly property<span>Dogs welcome — even on the rooftop</span></div></div>
+      </div>
+
+      <!-- IMMERSIVE DIVIDER -->
+      <div class="immersive-divider" style="margin:36px -28px;">
+        <div class="overlay">
+          <h3>The Emerald Coast at Its Best</h3>
+          <p>Sugar-white sand. Turquoise water. Warm August nights on a rooftop with a view that stretches to the horizon.</p>
+        </div>
+      </div>
+
+      <!-- ACTIVITIES ON-SITE -->
+      <div class="activities-section">
+        <div class="activities-subhead">At the Resort</div>
+        <div class="act-grid">
+          <div class="act-card">
+            <div class="act-card-icon">🏊</div>
+            <div class="act-card-title">Rooftop Pool & ARA Bar</div>
+            <div class="act-card-desc">The social heartbeat of Hotel Effie. Heated pool, lounge chairs, white cabanas, cocktails, and live music on weekends. Nothing else like it in the area.</div>
           </div>
+          <div class="act-card">
+            <div class="act-card-icon">💆</div>
+            <div class="act-card-title">Spa Lilliana</div>
+            <div class="act-card-desc">An elevator ride from your room. Swedish massage, hot stone, couples' treatments, facials. August books out fast — I can arrange this in advance.</div>
+          </div>
+          <div class="act-card">
+            <div class="act-card-icon">🏖️</div>
+            <div class="act-card-title">Private Beach Day</div>
+            <div class="act-card-desc">Tram to the beach, chairs pre-set with the Hotel Effie logo, attendants for towels and drinks. The Emerald Coast water is some of the clearest on the Gulf.</div>
+          </div>
+          <div class="act-card">
+            <div class="act-card-icon">⛵</div>
+            <div class="act-card-title">Marina Rentals</div>
+            <div class="act-card-desc">Kayaks, paddleboards, pontoon boats, and bicycles available at the Sandestin marina. A few hours on the bay is a completely different vibe from the beach.</div>
+          </div>
+          <div class="act-card">
+            <div class="act-card-icon">⛳</div>
+            <div class="act-card-title">Golf (4 Courses)</div>
+            <div class="act-card-desc">Raven, Burnt Pine, Baytowne, and The Links — all championship courses, all available to Hotel Effie guests. Raven is the one worth waking up early for.</div>
+          </div>
+          <div class="act-card">
+            <div class="act-card-icon">🎶</div>
+            <div class="act-card-title">Village of Baytowne Wharf</div>
+            <div class="act-card-desc">A 5-minute walk from the hotel. Waterfront dining, live music, shops, zip line, and a climbing wall. Good for an easy dinner or a festive night out.</div>
+          </div>
+        </div>
+
+        <!-- BEACH PHOTO ROW -->
+        <div class="beach-row">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500&h=320&fit=crop" alt="Destin beach emerald water">
+          <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=500&h=320&fit=crop" alt="White sand beach chairs">
+          <img src="https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=500&h=320&fit=crop" alt="Emerald Coast sunset">
         </div>
 
         <!-- NEARBY ATTRACTIONS -->
-        <div class="nearby-section">
-          <div class="activities-heading">Around Destin</div>
-          <ul class="nearby-list">
-            <li>
-              <div class="nearby-icon">🎣</div>
-              <div><strong style="color:var(--teal-dark);">Destin Harbor Boardwalk</strong> — About 15 min by car. Deep-sea fishing charters, waterfront restaurants, dolphin cruises, and some of the best seafood on the Gulf. Emerald Grande overlooks the whole harbor.</div>
-            </li>
-            <li>
-              <div class="nearby-icon">🏖️</div>
-              <div><strong style="color:var(--teal-dark);">Henderson Beach State Park</strong> — A rare undeveloped stretch of coastline just minutes away. No crowds, no umbrellas for sale — just 6,000 feet of protected white sand and emerald water.</div>
-            </li>
-            <li>
-              <div class="nearby-icon">🛍️</div>
-              <div><strong style="color:var(--teal-dark);">Silver Sands Premium Outlets</strong> — Florida's largest outlet mall, about 10 min from Sandestin. Over 100 stores including Coach, Kate Spade, and J.Crew. Good for a rainy afternoon.</div>
-            </li>
-            <li>
-              <div class="nearby-icon">🌊</div>
-              <div><strong style="color:var(--teal-dark);">30A & Rosemary Beach</strong> — About 20 min east. The curated, walkable beach towns along Scenic 30A — Rosemary Beach, Seaside, and Alys Beach — are worth a day trip. Good coffee, great food, beautiful architecture.</div>
-            </li>
-            <li>
-              <div class="nearby-icon">🦈</div>
-              <div><strong style="color:var(--teal-dark);">Snorkeling at Destin Jetties</strong> — The East Jetty is one of the most accessible snorkel spots in the area. Calm, clear water with lots of marine life right at the surface.</div>
-            </li>
-          </ul>
-        </div>
-
-        <!-- PRICING -->
-        <div class="hotel-pricing">
-          <div class="price-row">
-            <span class="price-label">3 nights · Junior Suite King (taxes incl.)</span>
-            <span class="price-value">$1,736.00</span>
-          </div>
-          <hr class="price-divider">
-          <div class="price-row">
-            <span class="price-label" style="font-weight:600;">Total charged now</span>
-            <span class="price-value highlight">$1,736.00</span>
-          </div>
-        </div>
-        <p class="hotel-note">* $151.20 resort fee paid directly to Hotel Effie at check-in. Covers beach access, tram service, pool amenities, and resort facilities.</p>
+        <div class="activities-subhead">Around Destin</div>
+        <ul class="nearby-list">
+          <li class="nearby-item">
+            <div class="nearby-icon">🎣</div>
+            <div>
+              <div class="nearby-distance">~15 min by car</div>
+              <div class="nearby-content-title">Destin Harbor Boardwalk</div>
+              <div class="nearby-content-desc">The hub of Destin's seafood scene. Deep-sea fishing charters leave from here every morning, and when the boats come back, the dockside restaurants turn those catches into dinner. AJ's on the harbor has been the go-to for two decades. Dolphin and sunset cruises run evenings.</div>
+            </div>
+          </li>
+          <li class="nearby-item">
+            <div class="nearby-icon">🌿</div>
+            <div>
+              <div class="nearby-distance">~10 min by car</div>
+              <div class="nearby-content-title">Henderson Beach State Park</div>
+              <div class="nearby-content-desc">A rare undeveloped stretch of Panhandle coastline — no umbrellas for sale, no music, just 6,000 feet of protected white sand and emerald water. The dunes here are the real thing. Go early, bring water, and plan to stay a few hours.</div>
+            </div>
+          </li>
+          <li class="nearby-item">
+            <div class="nearby-icon">🌊</div>
+            <div>
+              <div class="nearby-distance">~20 min east</div>
+              <div class="nearby-content-title">30A & Rosemary Beach</div>
+              <div class="nearby-content-desc">The string of curated beach towns along Scenic 30A — Rosemary Beach, Seaside, Watercolor, and Alys Beach — are worth a day trip. Good coffee, serious restaurants, and architecture that actually has a point of view. Bud & Alley's at Seaside for lunch.</div>
+            </div>
+          </li>
+          <li class="nearby-item">
+            <div class="nearby-icon">🛍️</div>
+            <div>
+              <div class="nearby-distance">~10 min by car</div>
+              <div class="nearby-content-title">Silver Sands Premium Outlets</div>
+              <div class="nearby-content-desc">Florida's largest outlet mall, with over 100 stores. Coach, Kate Spade, J.Crew, Lululemon, and more. A solid option for a rain morning or a late checkout afternoon before heading to the airport.</div>
+            </div>
+          </li>
+          <li class="nearby-item">
+            <div class="nearby-icon">🤿</div>
+            <div>
+              <div class="nearby-distance">~15 min by car</div>
+              <div class="nearby-content-title">Snorkeling at the East Jetty</div>
+              <div class="nearby-content-desc">One of the most accessible snorkel spots in the area. The East Pass jetty creates calm, clear water where fish, crabs, and the occasional sea turtle congregate. No gear rental needed — you can pick up a mask at CVS and be in the water within the hour.</div>
+            </div>
+          </li>
+        </ul>
       </div>
+
+      <!-- PRICING -->
+      <div class="hotel-pricing">
+        <div class="price-row">
+          <span class="price-label">3 nights · Junior Suite King</span>
+          <span class="price-value">$1,736.00</span>
+        </div>
+        <div class="price-row">
+          <span class="price-label">Taxes & fees</span>
+          <span class="price-value" style="font-size:15px;">Included</span>
+        </div>
+        <hr class="price-hr">
+        <div class="price-row">
+          <span class="price-label" style="font-weight:700;color:var(--teal-dark);">Total charged now</span>
+          <span class="price-value price-highlight">$1,736.00</span>
+        </div>
+      </div>
+      <p class="hotel-note">* $151.20 resort fee paid directly to Hotel Effie at check-in. Covers beach tram, beach chairs & umbrellas, pool access, and all Sandestin resort facilities.</p>
     </div>
   </section>
 
-  <!-- TOTAL BAR -->
+  <!-- RUNNING TOTAL -->
   <div class="total-bar">
     <div>
-      <div class="total-bar-label">Estimated Trip Total</div>
-      <div class="total-bar-note">Flights + hotel · taxes included</div>
+      <div class="total-left-label">Estimated Trip Total</div>
+      <div class="total-breakdown">
+        American Airlines round-trip &nbsp;·&nbsp; $517.90<br>
+        Hotel Effie · 3 nights &nbsp;·&nbsp; $1,736.00
+      </div>
     </div>
     <div>
-      <div class="total-bar-amount">Est. $2,253.90</div>
-      <div class="total-bar-subamount">+ $151.20 resort fee at check-in</div>
+      <div class="total-amount">Est. $2,253.90</div>
+      <div class="total-sub">+ $151.20 resort fee at check-in</div>
     </div>
   </div>
 
   <!-- VALUE -->
-  <div class="value-section">
-    <div class="section-label">What you're paying for</div>
+  <div class="value-box">
+    <div class="section-label" style="margin-bottom:12px;">What you're paying for</div>
     <p>Individual hotels and flights in your quote are priced at publicly available rates — and in many cases lower than what you'd find on your own. You don't have to worry about overpaying for a piece of your trip. What you're paying for is the rest: the right room at the right property, operators we've used for years, the trip app, and a human who answers when something doesn't go to plan.</p>
   </div>
 
   <!-- DEPOSIT -->
-  <div class="deposit-section">
-    <p><strong>To hold your trip:</strong> A deposit of $200–$500 secures your booking. You pay the balance closer to your travel date — no need to pay everything upfront. Final pricing confirmed by me before we book anything.</p>
+  <div class="deposit-box">
+    <p><strong>Ready to lock it in?</strong> A deposit of $200–$500 holds your booking. You pay the balance closer to your travel date — no need to front everything now. I'll confirm final pricing with you before anything gets charged.</p>
   </div>
 
   <!-- FORM -->
   <section class="form-section">
-    <h2 class="section-heading">Ready to Book?</h2>
+    <div class="section-heading-wrap">
+      <div class="section-heading">Let's Book Your Trip</div>
+      <div class="section-sub">Fill out the form and I'll be in touch within 24 hours</div>
+    </div>
     <div class="form-card">
-      <p class="form-intro">Fill out the form below and I'll reach out to confirm details and get your deposit set up. Questions are welcome too — just say so in your message.</p>
-      <form id="quoteForm" action="https://api.web3forms.com/submit" method="POST">
-        <input type="hidden" name="access_key" value="07b49510-e138-404a-a159-f083f3db32b3">
-        <input type="hidden" name="subject" value="Quote Request — Amy Williams · Destin 2026">
-        <input type="hidden" name="from_name" value="PMTP Quote Form">
-        <input type="hidden" name="redirect" value="false">
-        <input type="hidden" name="quote_details" value="Flights: American Airlines IAH-VPS-IAH, Aug 20-23 — $517.90 | Hotel: Hotel Effie Sandestin, Junior Suite King, Resort View, 3 nights — $1,736 + $151.20 resort fee | Est. Total: $2,253.90 + resort fee">
+      <p class="form-intro">Questions, changes, or ready to put down a deposit — just let me know below. I'll reach out to confirm the details and walk you through next steps.</p>
+      <form id="quoteForm">
+        <input type="hidden" id="f_access_key" value="07b49510-e138-404a-a159-f083f3db32b3">
+        <input type="hidden" id="f_subject" value="Quote Request — Amy Williams · Destin 2026">
+        <input type="hidden" id="f_quote" value="American Airlines IAH-VPS-IAH Aug 20-23: $517.90 | Hotel Effie Sandestin Junior Suite King Resort View 3 nights: $1,736 + $151.20 resort fee | Est. Total: $2,253.90">
         <div class="form-row">
           <label for="name">Your Name</label>
-          <input type="text" id="name" name="name" placeholder="Amy Williams" required>
+          <input type="text" id="name" placeholder="Amy Williams" required>
         </div>
         <div class="form-row">
           <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" placeholder="amy@email.com" required>
+          <input type="email" id="email" placeholder="amy@email.com" required>
         </div>
         <div class="form-row">
           <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" name="phone" placeholder="(XXX) XXX-XXXX">
+          <input type="tel" id="phone" placeholder="(XXX) XXX-XXXX">
         </div>
         <div class="form-row">
           <label for="message">Questions or Notes</label>
-          <textarea id="message" name="message" placeholder="I'm ready to book! / I have a question about..."></textarea>
+          <textarea id="message" placeholder="I'm ready to book! / I have a question about..."></textarea>
         </div>
         <button type="submit" class="form-submit">Send My Request →</button>
       </form>
       <div class="form-success" id="formSuccess">
-        <h3>Request Sent!</h3>
-        <p>I'll be in touch shortly to confirm your Destin trip details.</p>
+        <h3>You're all set!</h3>
+        <p>I'll be in touch within 24 hours to confirm your Destin trip details and next steps.</p>
       </div>
     </div>
   </section>
 
 </div>
 
+<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-logo">Point Me to Paradise Travel</div>
-  <div class="footer-tagline">Lacey Robertson · Your Travel Advisor</div>
+  <div class="footer-tagline">Lacey Robertson · Your Personal Travel Advisor</div>
   <div class="footer-contact">
     <a href="#" id="footerEmailLink">—</a>
     <a href="tel:8322743152">(832) 274-3152</a>
@@ -537,9 +704,7 @@
 
 <script>
 (function() {
-  var u = 'Lacey.paradiseplanner';
-  var d = 'gmail.com';
-  var addr = u + '@' + d;
+  var u = 'Lacey.paradiseplanner'; var d = 'gmail.com'; var addr = u + '@' + d;
   ['agentEmailLink','footerEmailLink'].forEach(function(id) {
     var el = document.getElementById(id);
     if (el) { el.href = 'mailto:' + addr; el.textContent = addr; }
@@ -548,25 +713,27 @@
 
 document.getElementById('quoteForm').addEventListener('submit', function(e) {
   e.preventDefault();
-  var form = this;
-  var btn = form.querySelector('.form-submit');
-  btn.textContent = 'Sending...';
-  btn.disabled = true;
-  fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(form) })
+  var btn = this.querySelector('.form-submit');
+  btn.textContent = 'Sending...'; btn.disabled = true;
+  var fd = new FormData();
+  fd.append('access_key', document.getElementById('f_access_key').value);
+  fd.append('subject', document.getElementById('f_subject').value);
+  fd.append('from_name', 'PMTP Quote Form');
+  fd.append('redirect', 'false');
+  fd.append('name', document.getElementById('name').value);
+  fd.append('email', document.getElementById('email').value);
+  fd.append('phone', document.getElementById('phone').value);
+  fd.append('message', document.getElementById('message').value);
+  fd.append('quote_details', document.getElementById('f_quote').value);
+  fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd })
     .then(function(r) { return r.json(); })
     .then(function(data) {
       if (data.success) {
-        form.style.display = 'none';
+        document.getElementById('quoteForm').style.display = 'none';
         document.getElementById('formSuccess').style.display = 'block';
-      } else {
-        btn.textContent = 'Something went wrong — try again';
-        btn.disabled = false;
-      }
+      } else { btn.textContent = 'Something went wrong — try again'; btn.disabled = false; }
     })
-    .catch(function() {
-      btn.textContent = 'Something went wrong — try again';
-      btn.disabled = false;
-    });
+    .catch(function() { btn.textContent = 'Something went wrong — try again'; btn.disabled = false; });
 });
 </script>
 </body>
