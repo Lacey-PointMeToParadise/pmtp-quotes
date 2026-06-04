@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MSC Seascape Caribbean Cruise — Omar Ramadan</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #75AFB1;
+    --teal-dark: #4F8A8C;
+    --pale-teal: #C4E4E1;
+    --gold: #DAC396;
+    --cream: #E9DEC0;
+    --cream-light: #F5EFDF;
+    --paper: #FBF9F4;
+    --white: #FFFFFF;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--teal-dark);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--teal-dark);
+    padding: 60px 24px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('https://images.unsplash.com/photo-1548574505-5e239809ee19?w=1600&q=80') center/cover no-repeat;
+    opacity: 0.18;
+  }
+  .hero-inner { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
+  .logo-line {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--pale-teal);
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 6vw, 52px);
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+  .hero-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--pale-teal);
+    margin-bottom: 28px;
+  }
+  .hero-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+  .pill {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 6px 16px;
+    border-radius: 100px;
+  }
+
+  /* AGENT CARD */
+  .agent-bar {
+    background: var(--cream-light);
+    border-bottom: 2px solid var(--pale-teal);
+    padding: 22px 24px;
+  }
+  .agent-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .agent-avatar {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: var(--teal-dark);
+    color: var(--white);
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .agent-info { flex: 1; min-width: 200px; }
+  .agent-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--teal-dark);
+  }
+  .agent-co {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 4px;
+  }
+  .agent-contacts { display: flex; flex-wrap: wrap; gap: 6px 20px; }
+  .agent-contacts a, .agent-contacts span {
+    font-size: 14px;
+    color: var(--teal);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .agent-contacts a:hover { text-decoration: underline; }
+
+  /* MAIN CONTENT */
+  .page { max-width: 860px; margin: 0 auto; padding: 0 20px 60px; }
+
+  /* ITINERARY STRIP */
+  .itin-section { padding: 40px 0 0; }
+  .section-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--teal-dark);
+    margin-bottom: 20px;
+  }
+  .itin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .itin-card {
+    background: var(--white);
+    border: 1.5px solid var(--pale-teal);
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+  }
+  .itin-day {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 4px;
+  }
+  .itin-port {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--teal-dark);
+    line-height: 1.3;
+  }
+  .itin-country {
+    font-size: 12px;
+    color: var(--teal);
+    margin-top: 2px;
+  }
+
+  /* PACKAGE TOGGLE */
+  .toggle-section { padding: 36px 0 0; }
+  .toggle-label {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--teal-dark);
+    margin-bottom: 12px;
+  }
+  .toggle-wrap {
+    display: flex;
+    background: var(--cream-light);
+    border: 2px solid var(--pale-teal);
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 520px;
+  }
+  .toggle-btn {
+    flex: 1;
+    padding: 12px 16px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--teal-dark);
+    transition: background 0.2s, color 0.2s;
+    line-height: 1.3;
+    text-align: center;
+  }
+  .toggle-btn.active {
+    background: var(--teal-dark);
+    color: var(--white);
+  }
+  .toggle-note {
+    font-size: 13px;
+    color: var(--teal);
+    margin-top: 8px;
+  }
+
+  /* CABIN CARDS */
+  .cabins-section { padding: 36px 0 0; }
+  .cabin-grid { display: flex; flex-direction: column; gap: 20px; }
+  .cabin-card {
+    background: var(--white);
+    border: 2px solid var(--pale-teal);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .cabin-card.selected {
+    border-color: var(--teal-dark);
+    box-shadow: 0 0 0 3px rgba(79,138,140,0.18);
+  }
+  .cabin-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    background: var(--pale-teal);
+  }
+  .cabin-body { padding: 22px 24px; }
+  .cabin-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .cabin-name-wrap { flex: 1; }
+  .cabin-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal-dark);
+    background: var(--pale-teal);
+    padding: 3px 10px;
+    border-radius: 100px;
+    margin-bottom: 6px;
+  }
+  .cabin-badge.aurea { background: var(--cream); color: var(--teal-dark); }
+  .cabin-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 21px;
+    font-weight: 600;
+    color: var(--teal-dark);
+    line-height: 1.2;
+  }
+  .cabin-select-wrap { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+  .cabin-radio {
+    width: 22px; height: 22px;
+    accent-color: var(--teal-dark);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .cabin-select-label { font-size: 13px; font-weight: 600; color: var(--teal); }
+  .cabin-desc {
+    font-size: 14px;
+    color: var(--teal-dark);
+    opacity: 0.8;
+    margin-bottom: 18px;
+    line-height: 1.5;
+  }
+  .price-breakdown {
+    background: var(--cream-light);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 16px;
+  }
+  .price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(79,138,140,0.12);
+  }
+  .price-row:last-child { border-bottom: none; }
+  .price-label { color: var(--teal-dark); font-weight: 400; }
+  .price-val { font-weight: 600; color: var(--teal-dark); }
+  .price-total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0 0;
+    margin-top: 4px;
+    border-top: 2px solid var(--teal);
+  }
+  .price-total-label { font-size: 13px; font-weight: 700; color: var(--teal-dark); text-transform: uppercase; letter-spacing: 0.06em; }
+  .price-total-val { font-size: 20px; font-weight: 700; color: var(--teal-dark); }
+
+  .addon-section { margin-top: 4px; }
+  .addon-title { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); margin-bottom: 10px; }
+  .addon-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(79,138,140,0.1);
+    cursor: pointer;
+  }
+  .addon-row:last-child { border-bottom: none; }
+  .addon-check {
+    width: 18px; height: 18px;
+    accent-color: var(--teal-dark);
+    margin-top: 2px;
+    flex-shrink: 0;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  .addon-text { flex: 1; }
+  .addon-name { font-size: 14px; font-weight: 500; color: var(--teal-dark); }
+  .addon-sub { font-size: 12px; color: var(--teal); }
+  .addon-price { font-size: 14px; font-weight: 600; color: var(--teal-dark); white-space: nowrap; }
+
+  /* RUNNING TOTAL */
+  .total-bar {
+    position: sticky;
+    bottom: 0;
+    background: var(--teal-dark);
+    color: var(--white);
+    padding: 14px 20px;
+    z-index: 100;
+    border-top: 3px solid var(--teal);
+  }
+  .total-bar-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .total-bar-label { font-size: 13px; font-weight: 500; opacity: 0.8; }
+  .total-bar-amount { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; }
+  .total-bar-note { font-size: 12px; opacity: 0.65; }
+
+  /* WHAT'S INCLUDED */
+  .included-section { padding: 48px 0 0; }
+  .included-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+    margin-top: 16px;
+  }
+  .included-item {
+    background: var(--white);
+    border: 1.5px solid var(--pale-teal);
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+  .included-icon { font-size: 22px; margin-bottom: 8px; }
+  .included-name { font-weight: 600; font-size: 14px; color: var(--teal-dark); margin-bottom: 3px; }
+  .included-desc { font-size: 13px; color: var(--teal-dark); opacity: 0.75; }
+
+  /* PRICING DISCLOSURE */
+  .disclosure-section { padding: 40px 0 0; }
+  .disclosure-box {
+    background: var(--cream-light);
+    border-left: 4px solid var(--teal);
+    border-radius: 0 10px 10px 0;
+    padding: 20px 24px;
+  }
+  .disclosure-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--teal); margin-bottom: 8px; }
+  .disclosure-text { font-size: 14px; color: var(--teal-dark); line-height: 1.6; }
+
+  /* PASSENGER INFO */
+  .pax-section { padding: 40px 0 0; }
+  .pax-notice {
+    background: var(--cream-light);
+    border: 1.5px solid var(--cream);
+    border-radius: 10px;
+    padding: 22px 24px;
+    margin-top: 16px;
+  }
+  .pax-notice p { font-size: 14px; color: var(--teal-dark); margin-bottom: 10px; }
+  .pax-notice p:last-child { margin-bottom: 0; }
+  .pax-fields {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 6px 20px;
+    margin-top: 12px;
+  }
+  .pax-field {
+    font-size: 13px;
+    color: var(--teal-dark);
+    padding: 4px 0;
+    border-bottom: 1px dashed rgba(79,138,140,0.25);
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+  .pax-field::before { content: '·'; color: var(--teal); font-weight: 700; }
+
+  /* CONTACT FORM */
+  .form-section { padding: 40px 0 0; }
+  .form-card {
+    background: var(--white);
+    border: 2px solid var(--pale-teal);
+    border-radius: 14px;
+    padding: 30px 28px;
+    margin-top: 16px;
+  }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 520px) { .form-grid { grid-template-columns: 1fr; } }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group.full { grid-column: 1 / -1; }
+  .form-label { font-size: 13px; font-weight: 600; color: var(--teal-dark); }
+  .form-input, .form-textarea, .form-select {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    padding: 10px 14px;
+    border: 1.5px solid var(--pale-teal);
+    border-radius: 8px;
+    background: var(--paper);
+    color: var(--teal-dark);
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+  .form-input:focus, .form-textarea:focus, .form-select:focus { border-color: var(--teal-dark); }
+  .form-textarea { min-height: 100px; resize: vertical; }
+  .form-submit {
+    margin-top: 20px;
+    background: var(--teal-dark);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 14px 32px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.2s;
+    letter-spacing: 0.03em;
+  }
+  .form-submit:hover { background: #3d6c6e; }
+  .form-note { font-size: 13px; color: var(--teal); margin-top: 10px; text-align: center; }
+  .hidden-inputs { display: none; }
+
+  /* FOOTER */
+  .footer {
+    background: var(--cream-light);
+    border-top: 2px solid var(--pale-teal);
+    padding: 32px 24px;
+    margin-top: 60px;
+    text-align: center;
+  }
+  .footer-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--teal-dark);
+    margin-bottom: 4px;
+  }
+  .footer-co { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-bottom: 10px; }
+  .footer-contacts { display: flex; flex-wrap: wrap; gap: 6px 20px; justify-content: center; margin-bottom: 16px; }
+  .footer-contacts a, .footer-contacts span { font-size: 14px; color: var(--teal); text-decoration: none; }
+  .footer-contacts a:hover { text-decoration: underline; }
+
+  /* DISCLAIMER */
+  .disclaimer {
+    background: var(--pale-teal);
+    padding: 14px 24px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--teal-dark);
+    font-weight: 500;
+  }
+
+  @media (max-width: 600px) {
+    .cabin-header { flex-direction: column; }
+    .cabin-select-wrap { align-self: flex-start; }
+    .agent-inner { gap: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="logo-line">Point Me to Paradise Travel · Client Quote</div>
+    <h1>MSC Seascape<br>Western Caribbean</h1>
+    <div class="hero-sub">7 nights aboard the MSC Seascape, August 2026</div>
+    <div class="hero-pills">
+      <span class="pill">Omar Ramadan &amp; Family</span>
+      <span class="pill">Aug 23 – Aug 30, 2026</span>
+      <span class="pill">Departs Galveston, TX</span>
+      <span class="pill">2 Adults · 2 Children</span>
+      <span class="pill">Fantastica Experience</span>
+      <span class="pill">5:30 PM Dinner Seating</span>
+    </div>
+  </div>
+</div>
+
+<!-- AGENT BAR -->
+<div class="agent-bar">
+  <div class="agent-inner">
+    <div class="agent-avatar">LR</div>
+    <div class="agent-info">
+      <div class="agent-co">Point Me to Paradise Travel</div>
+      <div class="agent-name">Lacey Robertson</div>
+      <div class="agent-contacts">
+        <a href="#" id="agentEmailLink"></a>
+        <span>(832) 274-3152</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW TO USE -->
+<div style="background:var(--pale-teal);border-bottom:2px solid var(--teal);padding:18px 24px;">
+  <div style="max-width:860px;margin:0 auto;">
+    <div style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal-dark);margin-bottom:10px;">How to Use This Quote</div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px 28px;">
+      <div style="display:flex;align-items:flex-start;gap:8px;font-size:14px;color:var(--teal-dark);">
+        <span style="background:var(--teal-dark);color:#fff;font-weight:700;font-size:12px;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">1</span>
+        <span>Choose your <strong>package</strong> — cabin only or with drinks &amp; Wi-Fi</span>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:8px;font-size:14px;color:var(--teal-dark);">
+        <span style="background:var(--teal-dark);color:#fff;font-weight:700;font-size:12px;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">2</span>
+        <span>Click <strong>Select</strong> on the cabin you want — a running total appears at the bottom</span>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:8px;font-size:14px;color:var(--teal-dark);">
+        <span style="background:var(--teal-dark);color:#fff;font-weight:700;font-size:12px;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">3</span>
+        <span>Check any <strong>add-ons</strong> you'd like (insurance, gratuities) — the total updates</span>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:8px;font-size:14px;color:var(--teal-dark);">
+        <span style="background:var(--teal-dark);color:#fff;font-weight:700;font-size:12px;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">4</span>
+        <span>Fill out the <strong>contact form</strong> at the bottom and Lacey will be in touch</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- ITINERARY -->
+  <div class="itin-section">
+    <div class="section-eyebrow">Your Itinerary</div>
+    <div class="section-title">7 Nights, 3 Destinations</div>
+    <div class="itin-grid">
+      <div class="itin-card">
+        <div class="itin-day">Sun, Aug 23</div>
+        <div class="itin-port">Galveston, TX</div>
+        <div class="itin-country">Embarkation</div>
+      </div>
+      <div class="itin-card">
+        <div class="itin-day">Mon–Tue</div>
+        <div class="itin-port">At Sea</div>
+        <div class="itin-country">Enjoy the ship</div>
+      </div>
+      <div class="itin-card">
+        <div class="itin-day">Wed, Aug 26</div>
+        <div class="itin-port">Costa Maya</div>
+        <div class="itin-country">Mexico</div>
+      </div>
+      <div class="itin-card">
+        <div class="itin-day">Thu, Aug 27</div>
+        <div class="itin-port">Isla de Roatán</div>
+        <div class="itin-country">Honduras</div>
+      </div>
+      <div class="itin-card">
+        <div class="itin-day">Fri, Aug 28</div>
+        <div class="itin-port">Cozumel</div>
+        <div class="itin-country">Mexico</div>
+      </div>
+      <div class="itin-card">
+        <div class="itin-day">Sat, Aug 29</div>
+        <div class="itin-port">At Sea</div>
+        <div class="itin-country">Final evening</div>
+      </div>
+      <div class="itin-card">
+        <div class="itin-day">Sun, Aug 30</div>
+        <div class="itin-port">Galveston, TX</div>
+        <div class="itin-country">Disembarkation</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PACKAGE TOGGLE -->
+  <div class="toggle-section">
+    <div class="section-eyebrow">Step 1 — Choose Your Package</div>
+    <div class="section-title">Cabin Options</div>
+    <div class="toggle-label">Would you like to add the Drinks &amp; Wi-Fi package?</div>
+    <div class="toggle-wrap">
+      <button class="toggle-btn active" id="btnWithout" onclick="setPackage(false)">
+        Without Package<br><span style="font-weight:400;font-size:12px">Cabin only · taxes included</span>
+      </button>
+      <button class="toggle-btn" id="btnWith" onclick="setPackage(true)">
+        + Drinks &amp; 2 Wi-Fi<br><span style="font-weight:400;font-size:12px">Unlimited drinks + 2 device Wi-Fi</span>
+      </button>
+    </div>
+    <div class="toggle-note">Prices shown for all 4 travelers · All options include taxes</div>
+  </div>
+
+  <!-- CABIN CARDS -->
+  <div class="cabins-section">
+    <div class="section-eyebrow">Step 2 — Select Your Cabin</div>
+    <div class="cabin-grid" id="cabinGrid">
+
+      <!-- INTERIOR -->
+      <div class="cabin-card" id="card-interior">
+        <img class="cabin-image" src="https://www.msccruises.com/dam/it/assets/itinerary-images/ship-images/MSC-Seascape/MSC_Seascape_Interior_Cabin.jpg" onerror="this.style.background='#C4E4E1';this.removeAttribute('src')" alt="MSC Seascape Interior Cabin">
+        <div class="cabin-body">
+          <div class="cabin-header">
+            <div class="cabin-name-wrap">
+              <div class="cabin-badge">Interior</div>
+              <div class="cabin-name">Interior Cabin</div>
+            </div>
+            <div class="cabin-select-wrap">
+              <input type="radio" name="cabinChoice" value="interior" class="cabin-radio" id="r-interior" onclick="selectCabin('interior')">
+              <label class="cabin-select-label" for="r-interior">Select</label>
+            </div>
+          </div>
+          <div class="cabin-desc">A well-appointed interior stateroom — perfect for a family that plans to spend most of their time exploring the ship and its three ports. Queen or twin bed configuration, flat-screen TV, and ample storage for a week at sea.</div>
+          <div class="price-breakdown" id="pb-interior">
+            <div class="price-row"><span class="price-label">Base cabin fare (all 4 travelers)</span><span class="price-val" id="base-interior">$889</span></div>
+            <div class="price-row"><span class="price-label">Taxes &amp; port fees</span><span class="price-val">Included</span></div>
+            <div class="price-row" id="pkg-row-interior" style="display:none"><span class="price-label">Drinks &amp; 2 Wi-Fi package</span><span class="price-val">+$774</span></div>
+          </div>
+          <div class="addon-section">
+            <div class="addon-title">Optional Add-Ons</div>
+            <label class="addon-row" for="ins-interior" onclick="setTimeout(updateTotal,0)">
+              <input type="checkbox" class="addon-check" id="ins-interior" data-cabin="interior" data-type="insurance" data-price="140">
+              <div class="addon-text">
+                <div class="addon-name">Travel Insurance</div>
+                <div class="addon-sub">Recommended for international travel</div>
+              </div>
+              <div class="addon-price">+$140</div>
+            </label>
+            <label class="addon-row" for="grat-interior" onclick="setTimeout(updateTotal,0)">
+              <input type="checkbox" class="addon-check" id="grat-interior" data-cabin="interior" data-type="gratuities" data-price="476">
+              <div class="addon-text">
+                <div class="addon-name">Prepaid Gratuities</div>
+                <div class="addon-sub">$119 × 4 travelers · Pay now &amp; relax</div>
+              </div>
+              <div class="addon-price">+$476</div>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- OCEAN VIEW -->
+      <div class="cabin-card" id="card-oceanview">
+        <img class="cabin-image" src="https://www.msccruises.com/dam/it/assets/itinerary-images/ship-images/MSC-Seascape/MSC_Seascape_Ocean_View_Cabin.jpg" onerror="this.style.background='#C4E4E1';this.removeAttribute('src')" alt="MSC Seascape Ocean View Cabin">
+        <div class="cabin-body">
+          <div class="cabin-header">
+            <div class="cabin-name-wrap">
+              <div class="cabin-badge">Ocean View</div>
+              <div class="cabin-name">Ocean View Cabin</div>
+            </div>
+            <div class="cabin-select-wrap">
+              <input type="radio" name="cabinChoice" value="oceanview" class="cabin-radio" id="r-oceanview" onclick="selectCabin('oceanview')">
+              <label class="cabin-select-label" for="r-oceanview">Select</label>
+            </div>
+          </div>
+          <div class="cabin-desc">All the comforts of the interior with the addition of a picture window — natural light in the mornings, and a view of the water as you pull into port. A nice upgrade for families who like to wake up and see where they are.</div>
+          <div class="price-breakdown" id="pb-oceanview">
+            <div class="price-row"><span class="price-label">Base cabin fare (all 4 travelers)</span><span class="price-val" id="base-oceanview">$1,089</span></div>
+            <div class="price-row"><span class="price-label">Taxes &amp; port fees</span><span class="price-val">Included</span></div>
+            <div class="price-row" id="pkg-row-oceanview" style="display:none"><span class="price-label">Drinks &amp; 2 Wi-Fi package</span><span class="price-val">+$774</span></div>
+          </div>
+          <div class="addon-section">
+            <div class="addon-title">Optional Add-Ons</div>
+            <label class="addon-row" for="ins-oceanview" onclick="setTimeout(updateTotal,0)">
+              <input type="checkbox" class="addon-check" id="ins-oceanview" data-cabin="oceanview" data-type="insurance" data-price="218">
+              <div class="addon-text">
+                <div class="addon-name">Travel Insurance</div>
+                <div class="addon-sub">Recommended for international travel</div>
+              </div>
+              <div class="addon-price">+$218</div>
+            </label>
+            <label class="addon-row" for="grat-oceanview" onclick="setTimeout(updateTotal,0)">
+              <input type="checkbox" class="addon-check" id="grat-oceanview" data-cabin="oceanview" data-type="gratuities" data-price="476">
+              <div class="addon-text">
+                <div class="addon-name">Prepaid Gratuities</div>
+                <div class="addon-sub">$119 × 4 travelers · Pay now &amp; relax</div>
+              </div>
+              <div class="addon-price">+$476</div>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- BALCONY -->
+      <div class="cabin-card" id="card-balcony">
+        <img class="cabin-image" src="https://www.msccruises.com/dam/it/assets/itinerary-images/ship-images/MSC-Seascape/MSC_Seascape_Balcony_Cabin.jpg" onerror="this.style.background='#C4E4E1';this.removeAttribute('src')" alt="MSC Seascape Balcony Cabin">
+        <div class="cabin-body">
+          <div class="cabin-header">
+            <div class="cabin-name-wrap">
+              <div class="cabin-badge">Balcony</div>
+              <div class="cabin-name">Balcony Cabin</div>
+            </div>
+            <div class="cabin-select-wrap">
+              <input type="radio" name="cabinChoice" value="balcony" class="cabin-radio" id="r-balcony" onclick="selectCabin('balcony')">
+              <label class="cabin-select-label" for="r-balcony">Select</label>
+            </div>
+          </div>
+          <div class="cabin-desc">Your own private outdoor space — pull up a chair as Cozumel comes into view, or let the kids spot dolphins from the balcony at sea. For a family trip, this is often the upgrade that people say they'd never go without again.</div>
+          <div class="price-breakdown" id="pb-balcony">
+            <div class="price-row"><span class="price-label">Base cabin fare (all 4 travelers)</span><span class="price-val" id="base-balcony">$1,269</span></div>
+            <div class="price-row"><span class="price-label">Taxes &amp; port fees</span><span class="price-val">Included</span></div>
+            <div class="price-row" id="pkg-row-balcony" style="display:none"><span class="price-label">Drinks &amp; 2 Wi-Fi package</span><span class="price-val">+$774</span></div>
+          </div>
+          <div class="addon-section">
+            <div class="addon-title">Optional Add-Ons</div>
+            <label class="addon-row" for="ins-balcony" onclick="setTimeout(updateTotal,0)">
+              <input type="checkbox" class="addon-check" id="ins-balcony" data-cabin="balcony" data-type="insurance" data-price="218">
+              <div class="addon-text">
+                <div class="addon-name">Travel Insurance</div>
+                <div class="addon-sub">Recommended for international travel</div>
+              </div>
+              <div class="addon-price">+$218</div>
+            </label>
+            <label class="addon-row" for="grat-balcony" onclick="setTimeout(updateTotal,0)">
+              <input type="checkbox" class="addon-check" id="grat-balcony" data-cabin="balcony" data-type="gratuities" data-price="476">
+              <div class="addon-text">
+                <div class="addon-name">Prepaid Gratuities</div>
+                <div class="addon-sub">$119 × 4 travelers · Pay now &amp; relax</div>
+              </div>
+              <div class="addon-price">+$476</div>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUITE (AUREA) -->
+      <div class="cabin-card" id="card-suite">
+        <img class="cabin-image" src="https://www.msccruises.com/dam/it/assets/itinerary-images/ship-images/MSC-Seascape/MSC_Seascape_Suite.jpg" onerror="this.style.background='#C4E4E1';this.removeAttribute('src')" alt="MSC Seascape Aurea Suite">
+        <div class="cabin-body">
+          <div class="cabin-header">
+            <div class="cabin-name-wrap">
+              <div class="cabin-badge aurea">✦ Aurea Suite</div>
+              <div class="cabin-name">Suite — Aurea Category</div>
+            </div>
+            <div class="cabin-select-wrap">
+              <input type="radio" name="cabinChoice" value="suite" class="cabin-radio" id="r-suite" onclick="selectCabin('suite')">
+              <label class="cabin-select-label" for="r-suite">Select</label>
+            </div>
+          </div>
+          <div class="cabin-desc">The Aurea category is MSC's top-tier experience on the Seascape. In addition to a larger suite on a premium deck, Aurea guests receive complimentary access to the thermal spa facilities and exclusive use of the Aurea Deck — a quieter outdoor area away from the main pool crowds. For a family that wants the full experience.</div>
+          <div class="price-breakdown" id="pb-suite">
+            <div class="price-row"><span class="price-label">Suite fare — Aurea category (all 4 travelers)</span><span class="price-val" id="base-suite">$2,647</span></div>
+            <div class="price-row"><span class="price-label">Taxes &amp; port fees</span><span class="price-val">Included</span></div>
+            <div class="price-row"><span class="price-label">Thermal spa access (Aurea perk)</span><span class="price-val">Included</span></div>
+            <div class="price-row"><span class="price-label">Exclusive Aurea Deck access</span><span class="price-val">Included</span></div>
+            <div class="price-row" id="pkg-row-suite" style="display:none"><span class="price-label">Drinks &amp; 2 Wi-Fi package</span><span class="price-val">+$774</span></div>
+          </div>
+          <div class="addon-section">
+            <div class="addon-title">Optional Add-Ons</div>
+            <label class="addon-row" for="ins-suite" onclick="setTimeout(updateTotal,0)">
+              <input type="checkbox" class="addon-check" id="ins-suite" data-cabin="suite" data-type="insurance">
+              <div class="addon-text">
+                <div class="addon-name">Travel Insurance</div>
+                <div class="addon-sub">Recommended for international travel</div>
+              </div>
+              <div class="addon-price" id="ins-suite-price">+$288</div>
+            </label>
+            <label class="addon-row" for="grat-suite" onclick="setTimeout(updateTotal,0)">
+              <input type="checkbox" class="addon-check" id="grat-suite" data-cabin="suite" data-type="gratuities" data-price="476">
+              <div class="addon-text">
+                <div class="addon-name">Prepaid Gratuities</div>
+                <div class="addon-sub">$119 × 4 travelers · Pay now &amp; relax</div>
+              </div>
+              <div class="addon-price">+$476</div>
+            </label>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /cabin-grid -->
+  </div>
+
+  <!-- WHAT'S INCLUDED -->
+  <div class="included-section">
+    <div class="section-eyebrow">Fantastica Experience</div>
+    <div class="section-title">What's Included for Every Cabin</div>
+    <div class="included-grid">
+      <div class="included-item">
+        <div class="included-icon">🍽️</div>
+        <div class="included-name">Main Dining</div>
+        <div class="included-desc">Full sit-down dinner nightly at 5:30 PM, assigned seating</div>
+      </div>
+      <div class="included-item">
+        <div class="included-icon">🎭</div>
+        <div class="included-name">Entertainment</div>
+        <div class="included-desc">Live shows, theater performances, kids' clubs</div>
+      </div>
+      <div class="included-item">
+        <div class="included-icon">🏊</div>
+        <div class="included-name">Pools &amp; Slides</div>
+        <div class="included-desc">Multiple pools, the MSC Waterpark, sports deck</div>
+      </div>
+      <div class="included-item">
+        <div class="included-icon">🎯</div>
+        <div class="included-name">Onboard Activities</div>
+        <div class="included-desc">Mini-golf, sports courts, arcade, and more</div>
+      </div>
+      <div class="included-item">
+        <div class="included-icon">☕</div>
+        <div class="included-name">Buffet Dining</div>
+        <div class="included-desc">Marketplace Buffet open throughout the day</div>
+      </div>
+      <div class="included-item">
+        <div class="included-icon">🌊</div>
+        <div class="included-name">3 Port Calls</div>
+        <div class="included-desc">Costa Maya · Roatán · Cozumel</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRICING DISCLOSURE -->
+  <div class="disclosure-section">
+    <div class="section-eyebrow">A Note on Pricing</div>
+    <div class="disclosure-box">
+      <div class="disclosure-title">How Your Quote Is Priced</div>
+      <div class="disclosure-text">Individual components in your quote are priced at publicly available rates — and in many cases lower than what you'd find on your own. You don't have to worry about overpaying for a piece of your trip. What you're paying for is the rest: the right cabin at the right time, a human who answers when something doesn't go to plan, and a smooth experience from booking to disembarkation. Final pricing confirmed by Lacey before booking.</div>
+    </div>
+  </div>
+
+  <!-- CONTACT FORM -->
+  <div class="form-section">
+    <div class="section-eyebrow">Step 3 — Reach Out</div>
+    <div class="section-title">Ready to Move Forward?</div>
+    <div class="form-card">
+      <form id="quoteForm" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="07b49510-e138-404a-a159-f083f3db32b3">
+        <input type="hidden" name="subject" id="formSubject" value="MSC Seascape Quote — Omar Ramadan">
+        <input type="hidden" name="cabin_selected" id="hiddenCabin" value="None selected">
+        <input type="hidden" name="package_selected" id="hiddenPackage" value="Without Drinks & Wi-Fi">
+        <input type="hidden" name="addons_selected" id="hiddenAddons" value="None">
+        <input type="hidden" name="estimated_total" id="hiddenTotal" value="Not calculated">
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="fname">First Name</label>
+            <input class="form-input" type="text" id="fname" name="first_name" placeholder="Omar" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="lname">Last Name</label>
+            <input class="form-input" type="text" id="lname" name="last_name" placeholder="Ramadan" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email Address</label>
+            <input class="form-input" type="email" id="email" name="email" placeholder="you@example.com" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="phone">Phone Number</label>
+            <input class="form-input" type="tel" id="phone" name="phone" placeholder="(713) 555-0100">
+          </div>
+          <div class="form-group full">
+            <label class="form-label" for="interest">Which cabin option interests you most?</label>
+            <select class="form-select" id="interest" name="cabin_interest">
+              <option value="">— Select an option —</option>
+              <option value="Interior">Interior Cabin</option>
+              <option value="Ocean View">Ocean View Cabin</option>
+              <option value="Balcony">Balcony Cabin</option>
+              <option value="Suite (Aurea)">Suite — Aurea Category</option>
+              <option value="Still deciding">Still deciding, have questions</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label class="form-label" for="message">Questions or notes for Lacey</label>
+            <textarea class="form-textarea" id="message" name="message" placeholder="Ask about cabin locations, port excursions, the drinks package, anything..."></textarea>
+          </div>
+        </div>
+        <button type="submit" class="form-submit">Send to Lacey →</button>
+        <div class="form-note">Lacey will follow up within 1 business day · No commitment required</div>
+      </form>
+    </div>
+  </div>
+
+</div><!-- /page -->
+
+<!-- RUNNING TOTAL BAR -->
+<div class="total-bar" id="totalBar" style="display:none">
+  <div class="total-bar-inner">
+    <div>
+      <div class="total-bar-label" id="totalLabel">Selected: —</div>
+      <div class="total-bar-note">Final pricing confirmed before booking</div>
+    </div>
+    <div class="total-bar-amount" id="totalAmount">Est. $0</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-name">Lacey Robertson</div>
+  <div class="footer-co">Point Me to Paradise Travel</div>
+  <div class="footer-contacts">
+    <a href="#" id="footerEmailLink"></a>
+    <span>(832) 274-3152</span>
+  </div>
+</div>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  Prices and availability are subject to change until booked.
+</div>
+
+<script>
+var withPackage = false;
+
+var basePrices = {
+  interior:  { without: 889.16,  with: 1663.16 },
+  oceanview: { without: 1089.16, with: 1863.16 },
+  balcony:   { without: 1269.16, with: 2043.16 },
+  suite:     { without: 2647.16, with: 3421.16 }
+};
+
+var insurancePrices = {
+  interior:  { without: 140, with: 140 },
+  oceanview: { without: 218, with: 218 },
+  balcony:   { without: 218, with: 218 },
+  suite:     { without: 288, with: 334 }
+};
+
+var selectedCabin = null;
+
+function setPackage(pkg) {
+  withPackage = pkg;
+  document.getElementById('btnWithout').classList.toggle('active', !pkg);
+  document.getElementById('btnWith').classList.toggle('active', pkg);
+
+  var pkgKey = pkg ? 'with' : 'without';
+  var cabins = ['interior','oceanview','balcony','suite'];
+  cabins.forEach(function(c) {
+    var baseEl = document.getElementById('base-' + c);
+    if (baseEl) {
+      baseEl.textContent = '$' + Math.round(basePrices[c][pkgKey]).toLocaleString();
+    }
+    var pkgRow = document.getElementById('pkg-row-' + c);
+    if (pkgRow) pkgRow.style.display = pkg ? '' : 'none';
+  });
+
+  var insSuitePrice = document.getElementById('ins-suite-price');
+  if (insSuitePrice) {
+    insSuitePrice.textContent = '+$' + insurancePrices.suite[pkgKey];
+    var insSuiteInput = document.getElementById('ins-suite');
+    if (insSuiteInput) insSuiteInput.setAttribute('data-price', insurancePrices.suite[pkgKey]);
+  }
+
+  document.getElementById('hiddenPackage').value = pkg ? 'With Drinks & 2 Wi-Fi' : 'Without Package';
+  updateTotal();
+}
+
+function selectCabin(cabin) {
+  selectedCabin = cabin;
+  var cards = document.querySelectorAll('.cabin-card');
+  cards.forEach(function(c) { c.classList.remove('selected'); });
+  var selected = document.getElementById('card-' + cabin);
+  if (selected) selected.classList.add('selected');
+  document.getElementById('hiddenCabin').value = cabin.charAt(0).toUpperCase() + cabin.slice(1);
+  updateTotal();
+}
+
+function updateTotal() {
+  if (!selectedCabin) {
+    document.getElementById('totalBar').style.display = 'none';
+    return;
+  }
+
+  var pkgKey = withPackage ? 'with' : 'without';
+  var base = basePrices[selectedCabin][pkgKey];
+
+  var addons = [];
+  var addonTotal = 0;
+
+  var insCheck = document.getElementById('ins-' + selectedCabin);
+  if (insCheck && insCheck.checked) {
+    var insPrice = parseFloat(insCheck.getAttribute('data-price')) || 0;
+    addonTotal += insPrice;
+    addons.push('Insurance (+$' + insPrice + ')');
+  }
+  var gratCheck = document.getElementById('grat-' + selectedCabin);
+  if (gratCheck && gratCheck.checked) {
+    addonTotal += 476;
+    addons.push('Gratuities (+$476)');
+  }
+
+  var total = base + addonTotal;
+  var cabinNames = { interior: 'Interior', oceanview: 'Ocean View', balcony: 'Balcony', suite: 'Suite (Aurea)' };
+  var labelText = cabinNames[selectedCabin];
+  if (withPackage) labelText += ' + Pkg';
+  if (addons.length) labelText += ' · ' + addons.join(', ');
+
+  document.getElementById('totalLabel').textContent = 'Selected: ' + labelText;
+  document.getElementById('totalAmount').textContent = 'Est. $' + Math.round(total).toLocaleString();
+  document.getElementById('totalBar').style.display = '';
+
+  document.getElementById('hiddenTotal').value = 'Est. $' + Math.round(total).toLocaleString();
+  document.getElementById('hiddenAddons').value = addons.length ? addons.join('; ') : 'None';
+}
+
+(function() {
+  var user = 'Lacey.paradiseplanner';
+  var domain = 'gmail.com';
+  var addr = user + '@' + domain;
+  var agentLink = document.getElementById('agentEmailLink');
+  if (agentLink) { agentLink.href = 'mailto:' + addr; agentLink.textContent = addr; }
+  var footerLink = document.getElementById('footerEmailLink');
+  if (footerLink) { footerLink.href = 'mailto:' + addr; footerLink.textContent = addr; }
+})();
+
+document.getElementById('quoteForm').addEventListener('submit', function() {
+  if (selectedCabin) {
+    var pkgKey = withPackage ? 'with' : 'without';
+    var base = basePrices[selectedCabin][pkgKey];
+    var addons = [];
+    var addonTotal = 0;
+    var insCheck = document.getElementById('ins-' + selectedCabin);
+    if (insCheck && insCheck.checked) {
+      var insPrice = parseFloat(insCheck.getAttribute('data-price')) || 0;
+      addonTotal += insPrice;
+      addons.push('Insurance');
+    }
+    var gratCheck = document.getElementById('grat-' + selectedCabin);
+    if (gratCheck && gratCheck.checked) {
+      addonTotal += 476;
+      addons.push('Gratuities');
+    }
+    document.getElementById('hiddenTotal').value = 'Est. $' + Math.round(base + addonTotal).toLocaleString();
+    document.getElementById('hiddenAddons').value = addons.length ? addons.join(', ') : 'None';
+  }
+});
+</script>
+</body>
+</html>
