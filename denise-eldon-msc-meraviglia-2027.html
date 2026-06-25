@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Denise & Eldon Palmer — MSC Meraviglia 2027</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #75AFB1;
+    --teal-dark: #4F8A8C;
+    --pale-teal: #C4E4E1;
+    --gold: #DAC396;
+    --cream: #E9DEC0;
+    --cream-light: #F5EFDF;
+    --paper: #FBF9F4;
+    --paper-pure: #FFFFFF;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--teal-dark);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    height: 480px;
+    overflow: hidden;
+  }
+  .hero-slides { position: relative; width: 100%; height: 100%; }
+  .hero-slide {
+    position: absolute; inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease;
+  }
+  .hero-slide.active { opacity: 1; }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.55) 100%);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; padding: 2rem;
+  }
+  .hero-eyebrow {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--gold);
+    font-size: 1.1rem;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.5rem;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 0.75rem;
+  }
+  .hero-sub {
+    color: rgba(255,255,255,0.88);
+    font-size: 1.05rem;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+  }
+  .hero-dots {
+    position: absolute; bottom: 1.2rem; left: 50%; transform: translateX(-50%);
+    display: flex; gap: 8px;
+  }
+  .hero-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: rgba(255,255,255,0.45); cursor: pointer; transition: background 0.3s;
+  }
+  .hero-dot.active { background: var(--gold); }
+
+  /* LAYOUT */
+  .container { max-width: 860px; margin: 0 auto; padding: 0 1.25rem; }
+
+  /* AGENT CARD */
+  .agent-card {
+    background: var(--pale-teal);
+    border-bottom: 3px solid var(--teal);
+    padding: 1.25rem 1.5rem;
+    text-align: center;
+  }
+  .agent-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--teal-dark);
+    margin-bottom: 0.15rem;
+  }
+  .agent-agency {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--teal-dark);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+  .agent-contacts {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+  }
+  .agent-contacts a { color: var(--teal-dark); text-decoration: none; font-weight: 500; }
+  .agent-contacts a:hover { text-decoration: underline; }
+
+  /* INTRO */
+  .intro-section {
+    padding: 2.5rem 0 1.5rem;
+    text-align: center;
+  }
+  .intro-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: var(--teal-dark);
+    margin-bottom: 0.75rem;
+  }
+  .intro-section p {
+    color: var(--teal-dark);
+    max-width: 640px;
+    margin: 0 auto 0.6rem;
+    font-size: 0.97rem;
+  }
+  .trip-pills {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem;
+    margin-top: 1.2rem;
+  }
+  .pill {
+    background: var(--cream);
+    color: var(--teal-dark);
+    border-radius: 999px;
+    padding: 0.3rem 1rem;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  /* SHIP HIGHLIGHTS */
+  .ship-highlights {
+    padding: 1.5rem 0 2rem;
+  }
+  .ship-highlights h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--teal-dark);
+    text-align: center;
+    margin-bottom: 1.25rem;
+  }
+  .highlight-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+  .highlight-card {
+    background: var(--paper-pure);
+    border: 1px solid var(--pale-teal);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .highlight-card img {
+    width: 100%; height: 160px; object-fit: cover; display: block;
+  }
+  .highlight-card-body { padding: 0.85rem 1rem; }
+  .highlight-card-body strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.97rem;
+    color: var(--teal-dark);
+    margin-bottom: 0.25rem;
+  }
+  .highlight-card-body p {
+    font-size: 0.83rem;
+    color: var(--teal-dark);
+    line-height: 1.5;
+  }
+
+  /* SECTION HEADING */
+  .section-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--teal-dark);
+    text-align: center;
+    margin: 2.5rem 0 1.25rem;
+  }
+  .section-divider {
+    width: 48px; height: 2px;
+    background: var(--gold);
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+  }
+
+  /* OPTION CARDS */
+  .option-card {
+    background: var(--paper-pure);
+    border: 2px solid var(--pale-teal);
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    transition: border-color 0.25s;
+  }
+  .option-card.selected { border-color: var(--teal); }
+  .option-card-header {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: var(--pale-teal);
+    cursor: pointer;
+  }
+  .option-card-header input[type="radio"] {
+    accent-color: var(--teal-dark);
+    width: 18px; height: 18px; flex-shrink: 0;
+  }
+  .option-card-header-text { flex: 1; }
+  .option-card-header-text h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--teal-dark);
+    margin-bottom: 0.1rem;
+  }
+  .option-card-header-text span {
+    font-size: 0.85rem;
+    color: var(--teal-dark);
+    font-style: italic;
+  }
+  .option-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--teal-dark);
+    white-space: nowrap;
+  }
+  .option-price small {
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 400;
+    color: var(--teal);
+    text-align: right;
+  }
+  .option-card-body {
+    display: flex; flex-wrap: wrap;
+    gap: 0;
+  }
+  .option-card-img {
+    width: 100%; max-width: 300px;
+    flex-shrink: 0;
+  }
+  .option-card-img img {
+    width: 100%; height: 200px; object-fit: cover; display: block;
+  }
+  .option-card-details {
+    flex: 1; min-width: 220px;
+    padding: 1.1rem 1.25rem;
+  }
+  .option-card-details ul {
+    list-style: none; padding: 0;
+  }
+  .option-card-details ul li {
+    font-size: 0.88rem;
+    color: var(--teal-dark);
+    padding: 0.25rem 0;
+    border-bottom: 1px solid var(--pale-teal);
+    display: flex; align-items: flex-start; gap: 0.5rem;
+  }
+  .option-card-details ul li:last-child { border-bottom: none; }
+  .check { color: var(--teal); font-size: 1rem; flex-shrink: 0; }
+  .badge {
+    display: inline-block;
+    background: var(--teal-dark);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    letter-spacing: 0.04em;
+    margin-top: 0.75rem;
+  }
+  .badge-gold {
+    background: var(--gold);
+    color: var(--teal-dark);
+  }
+
+  /* ADD-ONS */
+  .addons-section {
+    background: var(--cream-light);
+    border-top: 1px solid var(--cream);
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
+    padding: 1rem 1.25rem;
+  }
+  .addons-title {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--teal-dark);
+    margin-bottom: 0.65rem;
+  }
+  .addon-row {
+    display: flex; align-items: flex-start; gap: 0.75rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--cream);
+  }
+  .addon-row:last-child { border-bottom: none; }
+  .addon-row input[type="checkbox"] {
+    accent-color: var(--teal-dark);
+    width: 16px; height: 16px; flex-shrink: 0;
+    margin-top: 2px;
+    font-size: 16px;
+  }
+  .addon-label { flex: 1; }
+  .addon-label strong {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--teal-dark);
+  }
+  .addon-label p {
+    font-size: 0.8rem;
+    color: var(--teal);
+    margin-top: 0.1rem;
+    line-height: 1.4;
+  }
+  .addon-price {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--teal-dark);
+    white-space: nowrap;
+    padding-top: 2px;
+  }
+
+  /* STICKY TOTAL */
+  .sticky-total {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: var(--teal-dark);
+    color: #fff;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.85rem 1.5rem;
+    z-index: 100;
+    box-shadow: 0 -3px 16px rgba(0,0,0,0.18);
+  }
+  .sticky-total-label {
+    font-size: 0.82rem;
+    font-weight: 500;
+    opacity: 0.85;
+  }
+  .sticky-total-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--gold);
+  }
+  .sticky-total-note {
+    font-size: 0.7rem;
+    opacity: 0.65;
+    display: block;
+    text-align: right;
+  }
+
+  /* CONTACT FORM */
+  .contact-section {
+    padding: 2.5rem 0 1.5rem;
+  }
+  .contact-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--teal-dark);
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+  .contact-section p {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--teal-dark);
+    margin-bottom: 1.5rem;
+  }
+  .form-card {
+    background: var(--paper-pure);
+    border: 1px solid var(--pale-teal);
+    border-radius: 14px;
+    padding: 1.75rem;
+  }
+  .form-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .form-group { flex: 1; min-width: 200px; margin-bottom: 1rem; }
+  .form-group label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--teal-dark);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    padding: 0.65rem 0.85rem;
+    border: 1.5px solid var(--pale-teal);
+    border-radius: 7px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    color: var(--teal-dark);
+    background: var(--paper);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus { border-color: var(--teal); }
+  .form-group textarea { resize: vertical; min-height: 90px; }
+  .btn-submit {
+    display: block;
+    width: 100%;
+    background: var(--teal-dark);
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.9rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    transition: background 0.2s;
+    margin-top: 0.25rem;
+  }
+  .btn-submit:hover { background: var(--teal); }
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: 2rem;
+    color: var(--teal-dark);
+  }
+  .form-success h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--cream-light);
+    border-top: 2px solid var(--cream);
+    padding: 2rem 1.5rem 1rem;
+    text-align: center;
+    margin-top: 2rem;
+  }
+  footer .footer-agent {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--teal-dark);
+    margin-bottom: 0.25rem;
+  }
+  footer .footer-agency {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--teal);
+    margin-bottom: 0.5rem;
+  }
+  footer .footer-contacts {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1.25rem;
+    font-size: 0.88rem;
+    margin-bottom: 1rem;
+  }
+  footer .footer-contacts a { color: var(--teal-dark); text-decoration: none; }
+  footer .footer-contacts a:hover { text-decoration: underline; }
+  .disclaimer {
+    background: var(--paper);
+    border-top: 1px solid var(--cream);
+    padding: 0.75rem 1.5rem;
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--teal);
+    font-style: italic;
+  }
+
+  /* RESPONSIVE */
+  @media(max-width: 600px) {
+    .hero { height: 340px; }
+    .option-card-img { max-width: 100%; }
+    .option-card-img img { height: 180px; }
+    .sticky-total { padding: 0.75rem 1rem; }
+    .sticky-total-amount { font-size: 1.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-slides">
+    <div class="hero-slide active" style="background-image:url('https://www.msccruisesusa.com/-/media/us/ships/msc-meraviglia/promenade_mscmeraviglia_bestlargecruiseship.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('https://www.msccruisesusa.com/-/media/global-contents/ships/fleet/meraviglia/public-areas/mr_horizon_pool.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('https://www.msccruisesusa.com/-/media/global-contents/ships/fleet/meraviglia/public-areas/mr_galleria_meraviglia.jpg')"></div>
+  </div>
+  <div class="hero-overlay">
+    <div class="hero-eyebrow">Your Travel Quote</div>
+    <h1>Denise &amp; Eldon Palmer</h1>
+    <div class="hero-sub">MSC Meraviglia &nbsp;·&nbsp; Caribbean &nbsp;·&nbsp; February 13–21, 2027</div>
+  </div>
+  <div class="hero-dots">
+    <div class="hero-dot active" onclick="goSlide(0)"></div>
+    <div class="hero-dot" onclick="goSlide(1)"></div>
+    <div class="hero-dot" onclick="goSlide(2)"></div>
+  </div>
+</div>
+
+<!-- AGENT CARD -->
+<div class="agent-card">
+  <div class="agent-name">Lacey Robertson</div>
+  <div class="agent-agency">Point Me to Paradise Travel</div>
+  <div class="agent-contacts">
+    <a href="#" id="agentEmailLink"></a>
+    <a href="tel:8322743152">(832) 274-3152</a>
+  </div>
+</div>
+
+<!-- INTRO -->
+<div class="container">
+  <div class="intro-section">
+    <h2>Your Caribbean Escape Awaits</h2>
+    <p>Eight nights on the MSC Meraviglia, sailing out of Miami on February 13, 2027. Your friends have already claimed their spot — now it's your turn. Below you'll find two cabin options, along with optional add-ons to help you customize the trip your way.</p>
+    <div class="trip-pills">
+      <span class="pill">📅 Feb 13–21, 2027</span>
+      <span class="pill">🚢 8 Nights</span>
+      <span class="pill">⚓ Departs Miami</span>
+      <span class="pill">👥 2 Guests</span>
+    </div>
+  </div>
+
+  <!-- SHIP HIGHLIGHTS -->
+  <div class="ship-highlights">
+    <h3>About the MSC Meraviglia</h3>
+    <div class="highlight-grid">
+      <div class="highlight-card">
+        <img src="https://www.msccruisesusa.com/-/media/global-contents/ships/fleet/meraviglia/public-areas/mr_galleria_meraviglia.jpg" alt="Galleria Meraviglia promenade" loading="lazy">
+        <div class="highlight-card-body">
+          <strong>Galleria Meraviglia</strong>
+          <p>A 315-foot indoor promenade with an LED sky dome — boutiques, restaurants, and evening entertainment all under one breathtaking roof.</p>
+        </div>
+      </div>
+      <div class="highlight-card">
+        <img src="https://www.msccruisesusa.com/-/media/global-contents/ships/fleet/meraviglia/public-areas/mr_horizon_pool.jpg" alt="Horizon Pool deck" loading="lazy">
+        <div class="highlight-card-body">
+          <strong>Horizon Pool Deck</strong>
+          <p>Open-air sea views by day, open-air dancing under the stars by night. One of the best outdoor spaces on any ship in this class.</p>
+        </div>
+      </div>
+      <div class="highlight-card">
+        <img src="https://www.msccruisesusa.com/-/media/global-contents/ships/fleet/meraviglia/public-areas/broadway-theatre_mr_sitecore.jpg" alt="Broadway Theatre" loading="lazy">
+        <div class="highlight-card-body">
+          <strong>Broadway Theatre &amp; Carousel Lounge</strong>
+          <p>Six different live shows every sailing, plus exclusive acrobatic and illusion productions at the intimate Carousel Lounge.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CABIN OPTIONS -->
+  <div class="section-heading">
+    Choose Your Cabin
+    <div class="section-divider"></div>
+  </div>
+
+  <!-- OPTION 1: BALCONY ONLY -->
+  <div class="option-card" id="card-1">
+    <label class="option-card-header" for="opt1">
+      <input type="radio" name="cabinOption" id="opt1" value="Balcony Cabin — Cruise Only: $2,216.22" onchange="updateTotal()" checked>
+      <div class="option-card-header-text">
+        <h4>Option 1 — Balcony Cabin</h4>
+        <span>Cruise only · Customize with add-ons below</span>
+      </div>
+      <div class="option-price">
+        $2,216.22
+        <small>total for 2 guests</small>
+      </div>
+    </label>
+    <div class="option-card-body">
+      <div class="option-card-img">
+        <img src="MR_Balcony_01_en_US.jpg" alt="MSC Meraviglia Balcony Cabin">
+      </div>
+      <div class="option-card-details">
+        <ul>
+          <li><span class="check">✓</span> Private balcony with open ocean views</li>
+          <li><span class="check">✓</span> Approx. 200 sq ft stateroom + balcony space</li>
+          <li><span class="check">✓</span> King bed or twin configuration</li>
+          <li><span class="check">✓</span> Full bathroom with shower</li>
+          <li><span class="check">✓</span> Flat-screen TV, in-room safe, minibar</li>
+          <li><span class="check">✓</span> All meals included in main dining &amp; buffet</li>
+          <li><span class="check">✓</span> Access to all ship amenities &amp; entertainment</li>
+        </ul>
+        <span class="badge badge-gold">Add drinks &amp; extras below</span>
+      </div>
+    </div>
+
+    <!-- OPT 1 ADD-ONS -->
+    <div class="addons-section" id="addons-1">
+      <div class="addons-title">Optional Add-Ons</div>
+
+      <div class="addon-row">
+        <input type="checkbox" id="opt1-drinks" onchange="setTimeout(updateTotal,0)">
+        <label class="addon-label" for="opt1-drinks">
+          <strong>Premium Extra Drink Package</strong>
+          <p>Premium spirits, cocktails, wine &amp; beer — per person, all sailing</p>
+          <p style="color:#c0392b;font-weight:600;margin-top:0.2rem;">⏰ Sale ends tomorrow — don't miss this rate!</p>
+        </label>
+        <div class="addon-price" id="opt1-drinks-price">+$748.00</div>
+      </div>
+
+      <div class="addon-row">
+        <input type="checkbox" id="opt1-gratuities" onchange="setTimeout(updateTotal,0)">
+        <label class="addon-label" for="opt1-gratuities">
+          <strong>Prepaid Gratuities</strong>
+          <p>Take care of tips before you sail — no surprises at the end ($136 per person)</p>
+        </label>
+        <div class="addon-price">+$272.00</div>
+      </div>
+
+      <div class="addon-row">
+        <input type="checkbox" id="opt1-insurance" onchange="setTimeout(updateTotal,0)">
+        <label class="addon-label" for="opt1-insurance">
+          <strong>Travel Protection</strong>
+          <p>Trip cancellation, medical, baggage &amp; more — <a href="https://new.traveldefend.com/partners/pointmetoparadisepointmetoparadise" target="_blank" style="color:var(--teal-dark);">view plan details</a></p>
+        </label>
+        <div class="addon-price">+$242.00</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPTION 2: BALCONY + DRINKS + WIFI -->
+  <div class="option-card" id="card-2">
+    <label class="option-card-header" for="opt2">
+      <input type="radio" name="cabinOption" id="opt2" value="Balcony Cabin — Drinks &amp; Wi-Fi Included: $3,112.22" onchange="updateTotal()">
+      <div class="option-card-header-text">
+        <h4>Option 2 — Balcony + Drinks &amp; Wi-Fi</h4>
+        <span>Premium Extra Drink Package &amp; Wi-Fi included</span>
+      </div>
+      <div class="option-price">
+        $3,112.22
+        <small>total for 2 guests</small>
+      </div>
+    </label>
+    <div class="option-card-body">
+      <div class="option-card-img">
+        <img src="MR_Balcony_01_en_US.jpg" alt="MSC Meraviglia Balcony Cabin">
+      </div>
+      <div class="option-card-details">
+        <ul>
+          <li><span class="check">✓</span> Private balcony with open ocean views</li>
+          <li><span class="check">✓</span> Approx. 200 sq ft stateroom + balcony space</li>
+          <li><span class="check">✓</span> King bed or twin configuration</li>
+          <li><span class="check">✓</span> Premium Extra Drink Package — included</li>
+          <li><span class="check">✓</span> Wi-Fi package — included</li>
+          <li><span class="check">✓</span> All meals included in main dining &amp; buffet</li>
+          <li><span class="check">✓</span> Access to all ship amenities &amp; entertainment</li>
+        </ul>
+        <span class="badge">Drinks &amp; Wi-Fi bundled in</span>
+      </div>
+    </div>
+
+    <!-- OPT 2 ADD-ONS -->
+    <div class="addons-section" id="addons-2">
+      <div class="addons-title">Optional Add-Ons</div>
+
+      <div class="addon-row">
+        <input type="checkbox" id="opt2-gratuities" onchange="setTimeout(updateTotal,0)">
+        <label class="addon-label" for="opt2-gratuities">
+          <strong>Prepaid Gratuities</strong>
+          <p>Take care of tips before you sail — no surprises at the end ($136 per person)</p>
+        </label>
+        <div class="addon-price">+$272.00</div>
+      </div>
+
+      <div class="addon-row">
+        <input type="checkbox" id="opt2-insurance" onchange="setTimeout(updateTotal,0)">
+        <label class="addon-label" for="opt2-insurance">
+          <strong>Travel Protection</strong>
+          <p>Trip cancellation, medical, baggage &amp; more — <a href="https://new.traveldefend.com/partners/pointmetoparadisepointmetoparadise" target="_blank" style="color:var(--teal-dark);">view plan details</a></p>
+        </label>
+        <div class="addon-price">+$242.00</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT FORM -->
+  <div class="contact-section">
+    <h2>Ready to Reserve Your Spot?</h2>
+    <p>Send Lacey a message and she'll confirm availability and lock in your cabin.</p>
+    <div class="form-card">
+      <div id="formWrap">
+        <form id="quoteForm" onsubmit="submitForm(event)">
+          <input type="hidden" name="access_key" value="07b49510-e138-404a-a159-f083f3db32b3">
+          <input type="hidden" name="subject" value="Quote Request — Denise & Eldon Palmer — MSC Meraviglia 2027">
+          <input type="hidden" name="selected_cabin" id="field-cabin">
+          <input type="hidden" name="selected_addons" id="field-addons">
+          <input type="hidden" name="estimated_total" id="field-total">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" name="first_name" required placeholder="Denise">
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" name="last_name" required placeholder="Palmer">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required placeholder="your@email.com">
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" placeholder="(000) 000-0000">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="message">Questions or Notes</label>
+            <textarea id="message" name="message" placeholder="Any questions, preferred cabin deck, or special requests..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Send My Quote Request →</button>
+        </form>
+      </div>
+      <div class="form-success" id="formSuccess">
+        <h3>You're all set! 🎉</h3>
+        <p>Lacey will be in touch shortly to confirm availability and next steps for your MSC Meraviglia sailing.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-agent">Lacey Robertson</div>
+  <div class="footer-agency">Point Me to Paradise Travel</div>
+  <div class="footer-contacts">
+    <a href="#" id="footerEmailLink"></a>
+    <a href="tel:8322743152">(832) 274-3152</a>
+  </div>
+</footer>
+<div class="disclaimer">Prices and availability are subject to change until booked.</div>
+
+<!-- STICKY TOTAL -->
+<div class="sticky-total">
+  <div>
+    <div class="sticky-total-label">Estimated Total</div>
+  </div>
+  <div>
+    <div class="sticky-total-amount" id="stickyAmount">$2,216.22</div>
+    <span class="sticky-total-note">Final pricing confirmed by your agent</span>
+  </div>
+</div>
+
+<div style="height:60px"></div>
+
+<script>
+// Email assembly
+(function(){
+  var u = 'Lacey.paradiseplanner';
+  var d = 'gmail.com';
+  var addr = u + '@' + d;
+  var mailto = 'mailto:' + addr;
+  var el = document.getElementById('agentEmailLink');
+  if(el){ el.href = mailto; el.textContent = addr; }
+  var fel = document.getElementById('footerEmailLink');
+  if(fel){ fel.href = mailto; fel.textContent = addr; }
+})();
+
+// Pricing
+var basePrices = { opt1: 2216.22, opt2: 3112.22 };
+var addonPrices = {
+  'opt1-drinks': 748.00,
+  'opt1-gratuities': 272.00,
+  'opt1-insurance': 242.00,
+  'opt2-gratuities': 272.00,
+  'opt2-insurance': 242.00
+};
+
+function getSelectedOption(){
+  var radios = document.querySelectorAll('input[name="cabinOption"]');
+  for(var i=0;i<radios.length;i++){
+    if(radios[i].checked) return radios[i];
+  }
+  return radios[0];
+}
+
+function updateTotal(){
+  var sel = getSelectedOption();
+  var isOpt1 = sel.id === 'opt1';
+  var base = isOpt1 ? basePrices.opt1 : basePrices.opt2;
+  var total = base;
+  var addonList = [];
+
+  // Update card selected state
+  document.getElementById('card-1').classList.toggle('selected', isOpt1);
+  document.getElementById('card-2').classList.toggle('selected', !isOpt1);
+
+  // Gather relevant add-ons
+  var prefix = isOpt1 ? 'opt1' : 'opt2';
+  Object.keys(addonPrices).forEach(function(id){
+    if(id.startsWith(prefix)){
+      var el = document.getElementById(id);
+      if(el && el.checked){
+        total += addonPrices[id];
+        var label = el.closest('.addon-row').querySelector('.addon-label strong');
+        if(label) addonList.push(label.textContent);
+      }
+    }
+  });
+
+  document.getElementById('stickyAmount').textContent = '$' + total.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+  document.getElementById('field-cabin').value = sel.value;
+  document.getElementById('field-addons').value = addonList.length ? addonList.join(', ') : 'None';
+  document.getElementById('field-total').value = '$' + total.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+}
+
+// Form submit
+function submitForm(e){
+  e.preventDefault();
+  updateTotal();
+  var form = document.getElementById('quoteForm');
+  var data = new FormData(form);
+  fetch('https://api.web3forms.com/submit',{method:'POST',body:data})
+    .then(function(r){ return r.json(); })
+    .then(function(res){
+      if(res.success){
+        document.getElementById('formWrap').style.display='none';
+        document.getElementById('formSuccess').style.display='block';
+      } else {
+        alert('Something went wrong. Please try again or contact Lacey directly.');
+      }
+    })
+    .catch(function(){
+      alert('Something went wrong. Please contact Lacey directly.');
+    });
+}
+
+// Hero slideshow
+var currentSlide = 0;
+var slides = document.querySelectorAll('.hero-slide');
+var dots = document.querySelectorAll('.hero-dot');
+function goSlide(n){
+  slides[currentSlide].classList.remove('active');
+  dots[currentSlide].classList.remove('active');
+  currentSlide = n;
+  slides[currentSlide].classList.add('active');
+  dots[currentSlide].classList.add('active');
+}
+setInterval(function(){
+  goSlide((currentSlide+1) % slides.length);
+}, 5000);
+
+// Init
+updateTotal();
+</script>
+</body>
+</html>
